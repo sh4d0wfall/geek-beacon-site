@@ -5,7 +5,7 @@ body {
   -o-background-size: cover;
   background-size: cover;
   background-repeat:   no-repeat;
-  background-position: -50px center;              /* optional, center the image */
+  background-position: top center;              /* optional, center the image */
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2),
@@ -35,6 +35,16 @@ only screen and (min-resolution: 2dppx) {
   display: inline-block;
   width: 150px;
   height: auto;
+}
+
+iframe {
+    margin: 0 5%;
+    display: block;
+    border: 3px solid black;
+    position: absolute;
+    width: 90%;
+    height: 80%;
+    top: 15%;
 }
 
 a {
