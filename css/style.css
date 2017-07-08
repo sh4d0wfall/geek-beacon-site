@@ -15,9 +15,11 @@ only screen and (min-device-pixel-ratio: 2),
 only screen and (min-resolution: 192dpi),
 only screen and (min-resolution: 2dppx) {
   body {
-    background: url('../images/bg@2x.png') no-repeat center center fixed;
+    background: url('../images/bg@2x.png') no-repeat cover;
+    background-position: top center;
   }
 }
+
 
 .body-wrap {
     width: 100%;
