@@ -1,17 +1,15 @@
 body {
     background: url(../images/bg.png);
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    background-size: 100%;
     background-repeat: no-repeat;
-    background-position: top center; /* optional, center the image */
+    background-position: center -50px;
+    background-attachment: fixed;
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 1/2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
     body {
         background: url('../images/bg@2x.png') no-repeat cover;
-        background-position: top center;
+        background-position: center -50px;
     }
 }
 
@@ -42,8 +40,8 @@ iframe {
     border: 3px solid black;
     position: absolute;
     width: 90%;
-    height: 80%;
-    top: 15%;
+    height: calc(100% - 316px);
+    top: 308px;
 }
 
 a {
