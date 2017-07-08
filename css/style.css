@@ -21,13 +21,13 @@ body {
 
 .inner {
     margin: 2em auto;
-    width: 50%;
+    width: 75%;
     text-align: center;
 }
 
 .btn {
     display: inline-block;
-    width: 100px;
+    width: 150px;
     height: auto;
 }
 
