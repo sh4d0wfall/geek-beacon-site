@@ -75,4 +75,20 @@ a:hover {
 
 .b6 {
 }
+footer {
+    text-align: center;
+    color: #3fc9f7;
+    font-weight: bold;
+    font-size: 17px;
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    margin: 0px;
+    padding: 0;
+    left: 0;
+}
+
+footer img {
+    height: 50px;
+}
 
