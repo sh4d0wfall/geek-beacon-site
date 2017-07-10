@@ -1,4 +1,4 @@
-exporing site:
+exporting site:
 
 git archive --format tar  HEAD  |  gzip  > site.tgz 
 
