@@ -1,111 +1,108 @@
 body {
-    background: url(../images/background_improved.png);
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: center -50px;
-    background-attachment: fixed;
+	background: url(../images/background_improved.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center -50px;
+	background-attachment: fixed;
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 1/2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-    body {
-        background: url('../images/bg@2x.png') no-repeat cover;
-        background-position: center -50px;
-    }
+	body {
+		background: url('../images/bg@2x.png') no-repeat cover;
+		background-position: center -50px;
+	}
 }
 
 .body-wrap {
-    width: 100%;
+	width: 100%;
 }
 .iframe-container{
     height:800px;
 }
 .inner {
-    margin: 2em auto;
-    width: 75%;
-    text-align: center;
+	margin: 2em auto;
+	width: 75%;
+	text-align: center;
 }
 
 .btn {
-    display: inline-block;
-    width: 150px;
-    height: auto;
+	display: inline-block;
+	width: 150px;
+	height: auto;
 }
 
 
 iframe.gaming {
-    margin: 0 21.5%;
-    display: block;
-    border: 3px solid black;
-    position: absolute;
-    width: 57%;
-    height: calc(100% - 316px);
-    top: 308px;
+	margin: 0 21.5%;
+	display: block;
+	border: 3px solid black;
+	position: absolute;
+	width: 57%;
+	height: calc(100% - 316px);
+	top: 308px;
 }
 
 
 img.sel {
-  margin: 0 10px;
+	margin: 0 10px;
 }
 
 iframe {
-    margin: 0 5%;
-    display: block;
-    border: 3px solid black;
-    position: absolute;
-    width: 90%;
-    height: calc(100% - 316px);
-    top: 308px;
+	margin: 0 5%;
+	display: block;
+	border: 3px solid black;
+	position: absolute;
+	width: 90%;
+	height: calc(100% - 316px);
+	top: 308px;
     height:600px;
 }
 
 a {
-    display: inline-block;
-    -webkit-box-shadow: 0px 0px 5px 4px rgba(0, 255, 255, 0.61);
-    -moz-box-shadow: 0px 0px 5px 4px rgba(0, 255, 255, 0.61);
-    box-shadow: 0px 0px 5px 4px rgba(0, 255, 255, 0.61);
-    margin: 0 10px;
+	display: inline-block;
+	-webkit-box-shadow: 0 0 5px 4px rgba(0, 255, 255, 0.61);
+	-moz-box-shadow: 0 0 5px 4px rgba(0, 255, 255, 0.61);
+	box-shadow: 0 0 5px 4px rgba(0, 255, 255, 0.61);
+	margin: 0 10px;
 }
 
 a:hover {
-    -webkit-box-shadow: 0px 0px 5px 4px rgba(255, 255, 255, 0.81);
-    -moz-box-shadow: 0px 0px 5px 4px rgba(255, 255, 255, 0.81);
-    box-shadow: 0px 0px 5px 4px rgba(255, 255, 255, 0.81);
+	-webkit-box-shadow: 0 0 5px 4px rgba(255, 255, 255, 0.81);
+	-moz-box-shadow: 0 0 5px 4px rgba(255, 255, 255, 0.81);
+	box-shadow: 0 0 5px 4px rgba(255, 255, 255, 0.81);
 }
 
-.b1 {
-}
+.b1 {}
 
-.b2 {
-}
+.b2 {}
 
-.b3 {
-}
+.b3 {}
 
-.b4 {
-}
+.b4 {}
 
-.b5 {
-}
+.b5 {}
 
-.b6 {
-}
+.b6 {}
 
 footer {
-    text-align: center;
-    color: #3fc9f7;
-    font-weight: bold;
-    font-size: 17px;
-    position: absolute;
-    width: 100%;
-    bottom: 0px;
-    margin: 0px;
-    left: 0;
-    text-shadow: 0px 0px 7px rgba(0, 0, 0, 1);
-    background-color: rgba(0,0,0,0.7);
-    padding: 5px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	right: 0;
+
+	padding: 5px;
+	margin: 0;
+
+	text-shadow: 0 0 7px rgba(0, 0, 0, 1);
+	background: rgba(0,0,0,0.7);
+
+	text-align: center;
+
+	font-size: 17px;
+	font-weight: bold;
+	font-weight: bold;
 }
 
 footer img {
-    height: 50px;
+	height: 50px;
 }
-
