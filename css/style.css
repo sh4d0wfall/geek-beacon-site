@@ -16,7 +16,9 @@ body {
 .body-wrap {
     width: 100%;
 }
-
+.iframe-container{
+    height:800px;
+}
 .inner {
     margin: 2em auto;
     width: 75%;
@@ -53,6 +55,7 @@ iframe {
     width: 90%;
     height: calc(100% - 316px);
     top: 308px;
+    height:600px;
 }
 
 a {
