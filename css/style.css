@@ -20,7 +20,7 @@ body {
 	width: 100%;
 }
 .iframe-container{
-    height:800px;
+    height:850px;
 }
 .inner {
 	margin: 1em auto;
@@ -58,7 +58,7 @@ iframe {
 	width: 90%;
 	height: calc(100% - 316px);
 	top: 308px;
-    height:600px;
+    height:575px;
 }
 
 a {
