@@ -28,10 +28,10 @@ class ContentDisplay(View):
         # Get the menu
         menu = get_menu_items()
 
-        # query the DB for content by ID
+        # Query the DB for content by ID
         content = ContentItem.objects.get(pk=content_id)
 
-        # get the latest content for sidebar and footer
+        # Get the latest content for sidebar and footer
         latest_content = get_latest_content()
 
         # Get the latest featured content
