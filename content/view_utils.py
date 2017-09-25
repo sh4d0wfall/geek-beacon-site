@@ -10,10 +10,6 @@ def get_menu_items():
         for subitem in menu[parent.title]:
             menu[subitem] = MenuItem.objects.filter(published=True).filter(parent__title__exact=subitem).order_by('priority')
 
-    print(menu['Gaming'][0].override_url)
-    print(menu['Gaming'][0].override_url is '')
-    print(menu['Gaming'][1].override_url)
-    print(menu['Gaming'][1].override_url is '')
     return menu
 
 
