@@ -201,12 +201,12 @@
 
                         <!-- mega-menu start -->
                         <li class="nav-item dropdown  mega-menu mega-menu--wide">
-                          <a href="/content/tag/geeksabroad" class="nav-link dropdown-toggle" id="second-dropdown" aria-haspopup="false" aria-expanded="false">Geeks Abroad</a>
+                          <a href="/tag/geeksabroad" class="nav-link dropdown-toggle" id="second-dropdown" aria-haspopup="false" aria-expanded="false">Geeks Abroad</a>
 
                         </li>
                         <!-- mega-menu end -->
                         <li class="nav-item dropdown ">
-                          <a href="/content/tag/gaming" class="nav-link dropdown-toggle" id="third-dropdown" aria-haspopup="false" aria-expanded="false">Gaming</a>
+                          <a href="/tag/gaming" class="nav-link dropdown-toggle" id="third-dropdown" aria-haspopup="false" aria-expanded="false">Gaming</a>
                           <!--<ul class="dropdown-menu" aria-labelledby="third-dropdown">
                             <li ><a href="features-dark-page.html">Youtube</a></li>
                             <li ><a href="features-typography.html">Twitch</a></li>
@@ -214,14 +214,14 @@
                         </li>
                         <!-- mega-menu start -->
                         <li class="nav-item dropdown  mega-menu mega-menu--narrow">
-                          <a href="/content/tag/OS.Alt" class="nav-link dropdown-toggle" id="fourth-dropdown" aria-haspopup="false" aria-expanded="false">OS.Alt</a>
+                          <a href="/tag/OS.Alt" class="nav-link dropdown-toggle" id="fourth-dropdown" aria-haspopup="false" aria-expanded="false">OS.Alt</a>
                         </li>
                         <!-- mega-menu end -->
                         <li class="nav-item dropdown ">
-                          <a href="/content/tag/squirrels" class="nav-link dropdown-toggle" id="fifth-dropdown" aria-haspopup="false" aria-expanded="false">Squirrel Army</a>
+                          <a href="/tag/squirrels" class="nav-link dropdown-toggle" id="fifth-dropdown" aria-haspopup="false" aria-expanded="false">Squirrel Army</a>
                         </li>
                         <li class="nav-item dropdown ">
-                          <a href="/content/" class="nav-link dropdown-toggle" id="sixth-dropdown" aria-haspopup="false" aria-expanded="false">News</a>
+                          <a href="/all" class="nav-link dropdown-toggle" id="sixth-dropdown" aria-haspopup="false" aria-expanded="false">News</a>
                         </li>
                         <li class="nav-item dropdown ">
                           <a href="/credits/" class="nav-link dropdown-toggle" id="seventh-dropdown" aria-haspopup="false" aria-expanded="false">Credits</a>
@@ -292,9 +292,9 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-6 push-lg-6">
-              <div class="overlay-container overlay-visible">
-                <img src="{% static 'images/section-image-3.png' %}" alt="Geeks Abroad" height="570">
-                <a href="/content/tag/geeksabroad" class="overlay-link"><i class="fa fa-link"></i></a>
+              <div class="overlay-container overlay-visible ">
+                <img src="{% static 'images/GeeksAbroad.png' %}" alt="Geeks Abroad" height="570">
+                <a href="/tag/geeksabroad" class="overlay-link"><i class="fa fa-link"></i></a>
                 <div class="overlay-bottom hidden-sm-down">
                   <div class="text">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt nobis sunt, quae alias impedit ea molestias recusandae.
@@ -310,7 +310,7 @@
 
                 <p>Geeks Abroad is about passion and we’re looking for some passionate individuals that will be able to be Geeky Tour Guides.
                   Please if you haven’t already fill out our <a href="https://goo.gl/t8Xhb5">Google Form!</a> Also do you know any places that you’d like us to visit? Please feel free to let us know!</p>
-              <a href="/content/tag/geeksabroad" class="btn radius-50 btn-default btn-hvr hvr-shutter-out-horizontal"><i class="icon-users-1 pr-10"></i>More</a>
+              <a href="/tag/geeksabroad" class="btn radius-50 btn-default btn-hvr hvr-shutter-out-horizontal"><i class="icon-users-1 pr-10"></i>More</a>
             </div>
           </div>
         </div>
@@ -320,17 +320,17 @@
 
       <!-- section start -->
       <!-- ================ -->
-      <section class="dark-translucent-bg pv-30" style="background-image:url({% static 'images/geeksabroad.png' %});">
+      <section class="dark-translucent-bg pv-30" style="background-image:url({% static 'images/gaming_banner.png' %});">
         <div class="container">
           <div class="row">
             <div class="col-md-8 offset-md-2">
               <h2 class="text-center mt-4">Geek <strong>BEACON</strong> Gaming</h2>
               <div class="separator"></div>
-              <p class="large text-center">We never thought of a good tagline, also change this background image</p>
+              <p class="large text-center">We never thought of a good tagline</p>
             </div>
             <div class="col-lg-4">
               <div class="pv-30 feature-box text-center object-non-visible" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
-                <span class="icon default-bg circle"><i class="fa fa-diamond"></i></span>
+                <span class="icon" style="background:none;"><img src="{% static 'images/youtube_cube.png' %}"/></span>
                 <h3>Youtube</h3>
                 <div class="separator clearfix"></div>
                 <p>Subscribe to us on Youtube! Blah Blah Blah put some more text here so it looks neat.</p>
@@ -339,7 +339,7 @@
             </div>
             <div class="col-lg-4">
               <div class="pv-30 feature-box text-center object-non-visible" data-animation-effect="fadeInDownSmall" data-effect-delay="200">
-                <span class="icon default-bg circle"><i class="fa fa-connectdevelop"></i></span>
+                <span class="icon" style="background:none;"><img src="{% static 'images/gaming_cube.png' %}"/></span>
                 <h3>Twitch</h3>
                 <div class="separator clearfix"></div>
                 <p>Follow us on Twitch! Blah Blah Blah put some more text here so it looks neat.</p>
@@ -348,7 +348,7 @@
             </div>
             <div class="col-lg-4">
               <div class="pv-30 feature-box text-center object-non-visible" data-animation-effect="fadeInDownSmall" data-effect-delay="300">
-                <span class="icon default-bg circle"><i class="fa icon-snow"></i></span>
+                <span class="icon" style="background:none;"><img src="{% static 'images/discord_cube.png' %}"/></span>
                 <h3>Discord</h3>
                 <div class="separator clearfix"></div>
                 <p>Join the fragfest on Discord! Blah Blah Blah put some more text here so it looks neat.</p>
@@ -364,7 +364,7 @@
       <!-- ================ -->
       <section class="full-width-section pv-40 light-gray-bg border-clear">
         <div class="clearfix">
-          <img class="pull-right object-non-visible" data-animation-effect="slideInUp" data-effect-delay="100" src="{% static 'images/section-image-1.png' %}" alt="">
+          <img class="pull-right object-non-visible" data-animation-effect="slideInLeft" data-effect-delay="100" src="{% static 'images/OS_ALT.png' %}" alt="">
         </div>
         <div class="full-text-container light-gray-bg border-clear">
           <h2 class="mt-4">OS.<strong>Alt</strong></h2>
@@ -489,156 +489,109 @@
               <div class="row">
                 <div class="col-lg-3">
                   <div class="footer-content">
-                    <div class="logo-footer"><img id="logo-footer" src="{% static 'images/logo_light_blue.png' %}" alt=""></div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus illo vel dolorum soluta consectetur doloribus sit. Delectus non tenetur odit dicta vitae debitis suscipit doloribus. Ipsa, aut voluptas quaerat... <a href="page-about.html">Learn More<i class="fa fa-long-arrow-right pl-1"></i></a></p>
+                    <h2 class="title">Geeks Abroad</h2>
                     <div class="separator-2"></div>
-                    <nav>
-                      <ul class="nav flex-column">
-                        <li class="nav-item"><a class="nav-link" target="_blank" href="https://htmlcoder.me/support">Support</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Terms</a></li>
-                        <li class="nav-item"><a class="nav-link" href="page-about.html">About</a></li>
-                      </ul>
-                    </nav>
-                  </div>
-                </div>
-                <div class="col-lg-3">
-                  <div class="footer-content">
-                    <h2 class="title">Latest From Blog</h2>
-                    <div class="separator-2"></div>
+
+                    {% for item in latest_content.ga %}
                     <div class="media margin-clear">
                       <div class="d-flex pr-2">
                         <div class="overlay-container">
-                          <img class="media-object" src="{% static 'images/blog-thumb-1.jpg' %}" alt="blog-thumb">
-                          <a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
+                          <img class="media-object" src="{{ MEDIA_URL }}{{ item.thumbnail_image }}" alt="blog-thumb">
+                          <a href="/display/{{ post.id }}" class="overlay-link small"><i class="fa fa-link"></i></a>
                         </div>
                       </div>
                       <div class="media-body">
-                        <h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
-                        <p class="small margin-clear"><i class="fa fa-calendar pr-2"></i>Mar 23, 2017</p>
+                        <h6 class="media-heading"><a href="/display/{{ item.id }}">{{ item.title }}</a></h6>
+                        <p class="small margin-clear"><i class="fa fa-calendar pr-2"></i>{{ item.updated_at }}</p>
                       </div>
                     </div>
                     <hr>
-                    <div class="media margin-clear">
-                      <div class="d-flex pr-2">
-                        <div class="overlay-container">
-                          <img class="media-object" src="{% static 'images/blog-thumb-2.jpg' %}" alt="blog-thumb">
-                          <a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-                        </div>
-                      </div>
-                      <div class="media-body">
-                        <h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
-                        <p class="small margin-clear"><i class="fa fa-calendar pr-2"></i>Mar 22, 2017</p>
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="media margin-clear">
-                      <div class="d-flex pr-2">
-                        <div class="overlay-container">
-                          <img class="media-object" src="{% static 'images/blog-thumb-3.jpg' %}" alt="blog-thumb">
-                          <a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-                        </div>
-                      </div>
-                      <div class="media-body">
-                        <h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
-                        <p class="small margin-clear"><i class="fa fa-calendar pr-2"></i>Mar 21, 2017</p>
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="media margin-clear">
-                      <div class="d-flex pr-2">
-                        <div class="overlay-container">
-                          <img class="media-object" src="{% static 'images/blog-thumb-4.jpg' %}" alt="blog-thumb">
-                          <a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-                        </div>
-                      </div>
-                      <div class="media-body">
-                        <h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
-                        <p class="small margin-clear"><i class="fa fa-calendar pr-2"></i>Mar 21, 2017</p>
-                      </div>
-                    </div>
+                    {% empty %}No Recent Posts For This Tag!{% endfor %}
+
                     <div class="text-right space-top">
                       <a href="blog-large-image-right-sidebar.html" class="link-dark"><i class="fa fa-plus-circle pl-1 pr-1"></i>More</a>
                     </div>
                   </div>
                 </div>
+
                 <div class="col-lg-3">
                   <div class="footer-content">
-                    <h2 class="title">Portfolio Gallery</h2>
+                    <h2 class="title">Gaming</h2>
                     <div class="separator-2"></div>
-                    <div class="row grid-space-10">
-                      <div class="col-4 col-lg-6">
-                        <div class="overlay-container mb-10">
-                          <img src="{% static 'images/gallery-1.jpg' %}" alt="">
-                          <a href="portfolio-item.html" class="overlay-link small">
-                            <i class="fa fa-link"></i>
-                          </a>
+
+                    {% for item in latest_content.gaming %}
+                    <div class="media margin-clear">
+                      <div class="d-flex pr-2">
+                        <div class="overlay-container">
+                          <img class="media-object" src="{{ MEDIA_URL }}{{ item.thumbnail_image }}" alt="blog-thumb">
+                          <a href="/display/{{ post.id }}" class="overlay-link small"><i class="fa fa-link"></i></a>
                         </div>
                       </div>
-                      <div class="col-4 col-lg-6">
-                        <div class="overlay-container mb-10">
-                          <img src="{% static 'images/gallery-2.jpg' %}" alt="">
-                          <a href="portfolio-item.html" class="overlay-link small">
-                            <i class="fa fa-link"></i>
-                          </a>
-                        </div>
-                      </div>
-                      <div class="col-4 col-lg-6">
-                        <div class="overlay-container mb-10">
-                          <img src="{% static 'images/gallery-3.jpg' %}" alt="">
-                          <a href="portfolio-item.html" class="overlay-link small">
-                            <i class="fa fa-link"></i>
-                          </a>
-                        </div>
-                      </div>
-                      <div class="col-4 col-lg-6">
-                        <div class="overlay-container mb-10">
-                          <img src="{% static 'images/gallery-4.jpg' %}" alt="">
-                          <a href="portfolio-item.html" class="overlay-link small">
-                            <i class="fa fa-link"></i>
-                          </a>
-                        </div>
-                      </div>
-                      <div class="col-4 col-lg-6">
-                        <div class="overlay-container mb-10">
-                          <img src="{% static 'images/gallery-5.jpg' %}" alt="">
-                          <a href="portfolio-item.html" class="overlay-link small">
-                            <i class="fa fa-link"></i>
-                          </a>
-                        </div>
-                      </div>
-                      <div class="col-4 col-lg-6">
-                        <div class="overlay-container mb-10">
-                          <img src="{% static 'images/gallery-6.jpg' %}" alt="">
-                          <a href="portfolio-item.html" class="overlay-link small">
-                            <i class="fa fa-link"></i>
-                          </a>
-                        </div>
+                      <div class="media-body">
+                        <h6 class="media-heading"><a href="/display/{{ item.id }}">{{ item.title }}</a></h6>
+                        <p class="small margin-clear"><i class="fa fa-calendar pr-2"></i>Mar 23, 2017</p>
                       </div>
                     </div>
+                    <hr>
+                    {% empty %}No Recent Posts For This Tag!{% endfor %}
+
                     <div class="text-right space-top">
-                      <a href="portfolio-grid-2-3-col.html" class="link-dark"><i class="fa fa-plus-circle pl-1 pr-1"></i>More</a>
+                      <a href="blog-large-image-right-sidebar.html" class="link-dark"><i class="fa fa-plus-circle pl-1 pr-1"></i>More</a>
                     </div>
                   </div>
                 </div>
+
                 <div class="col-lg-3">
                   <div class="footer-content">
-                    <h2 class="title">Find Us</h2>
+                    <h2 class="title">OS.Alt</h2>
                     <div class="separator-2"></div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium odio voluptatem necessitatibus illo vel dolorum soluta.</p>
-                    <ul class="social-links circle animated-effect-1">
-                      <li class="facebook"><a target="_blank" href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
-                      <li class="twitter"><a target="_blank" href="https://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
-                      <li class="googleplus"><a target="_blank" href="https://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
-                      <li class="linkedin"><a target="_blank" href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>
-                      <li class="xing"><a target="_blank" href="https://www.xing.com"><i class="fa fa-xing"></i></a></li>
-                    </ul>
+
+                    {% for item in latest_content.osalt %}
+                    <div class="media margin-clear">
+                      <div class="d-flex pr-2">
+                        <div class="overlay-container">
+                          <img class="media-object" src="{{ MEDIA_URL }}{{ item.thumbnail_image }}" alt="blog-thumb">
+                          <a href="/display/{{ post.id }}" class="overlay-link small"><i class="fa fa-link"></i></a>
+                        </div>
+                      </div>
+                      <div class="media-body">
+                        <h6 class="media-heading"><a href="/display/{{ item.id }}">{{ item.title }}</a></h6>
+                        <p class="small margin-clear"><i class="fa fa-calendar pr-2"></i>Mar 23, 2017</p>
+                      </div>
+                    </div>
+                    <hr>
+                    {% empty %}No Recent Posts For This Tag!{% endfor %}
+
+                    <div class="text-right space-top">
+                      <a href="blog-large-image-right-sidebar.html" class="link-dark"><i class="fa fa-plus-circle pl-1 pr-1"></i>More</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-3">
+                  <div class="footer-content">
+                    <h2 class="title">Squirrel Army</h2>
                     <div class="separator-2"></div>
-                    <ul class="list-icons">
-                      <li><i class="fa fa-map-marker pr-2 text-default"></i> One infinity loop, 54100</li>
-                      <li><i class="fa fa-phone pr-2 text-default"></i> +00 1234567890</li>
-                      <li><a href="mailto:info@theproject.com"><i class="fa fa-envelope-o pr-2"></i>info@theproject.com</a></li>
-                    </ul>
+
+                    {% for item in latest_content.sa %}
+                    <div class="media margin-clear">
+                      <div class="d-flex pr-2">
+                        <div class="overlay-container">
+                          <img class="media-object" src="{{ MEDIA_URL }}{{ item.thumbnail_image }}" alt="blog-thumb">
+                          <a href="/display/{{ post.id }}" class="overlay-link small"><i class="fa fa-link"></i></a>
+                        </div>
+                      </div>
+                      <div class="media-body">
+                        <h6 class="media-heading"><a href="/display/{{ item.id }}">{{ item.title }}</a></h6>
+                        <p class="small margin-clear"><i class="fa fa-calendar pr-2"></i>Mar 23, 2017</p>
+                      </div>
+                    </div>
+                    <hr>
+                    {% empty %}No Recent Posts For This Tag!{% endfor %}
+
+                    <div class="text-right space-top">
+                      <a href="blog-large-image-right-sidebar.html" class="link-dark"><i class="fa fa-plus-circle pl-1 pr-1"></i>More</a>
+                    </div>
                   </div>
                 </div>
               </div>
