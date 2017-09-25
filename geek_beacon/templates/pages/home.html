@@ -208,7 +208,7 @@
                                 {% if menu|get:subnav %}
                                 <ul class="dropdown-menu">
                                   {% for thirdnav in menu|get:subnav %}
-                                  <li><a href="features-headers-default.html">{{ thirdnav }}</a></li>
+                                  <li><a href="{% if thirdnav.override_url == '' %}{% if thirdnav.content.first.id %}/display/{{ thirdnav.content.first.id }}{% endif %}{% else %}{{ thirdnav.override_url }}{% endif %}">{{ thirdnav }}</a></li>
                                   {% endfor %}
                                 </ul>
                                 {% endif %}
