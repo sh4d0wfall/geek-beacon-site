@@ -100,7 +100,7 @@
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
                       {% for feature in featured_content %}
-                      <div class="carousel-item active">
+                      <div class="carousel-item {% if forloop.first %}active{% endif %}">
                         <div class="image-box shadow bordered text-center mb-20">
                           <div class="overlay-container">
                             <img src="{{ MEDIA_URL }}{{ feature.image }}" alt="">

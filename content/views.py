@@ -2,25 +2,32 @@ from django.shortcuts import render, redirect
 from django.views import View
 from content.models import ContentItem, ContentTag
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from content.view_utils import get_latest_content, layout_selector, get_featured_content
+from content.view_utils import *
 
 
 class HomePage(View):
     """Home page view"""
 
     def get(self, request):
-        # get the latest content for sidebar and footer
+        # Get the menu
+        menu = get_menu_items()
+
+        # Get the latest content for sidebar and footer
         latest_content = get_latest_content()
 
         # Render the view
         return render(request, "pages/home.html",
-                                            {"latest_content" : latest_content})
+                                            {"latest_content" : latest_content,
+                                             "menu" : menu,})
 
 
 class ContentDisplay(View):
     """Single item display"""
 
     def get(self, request, content_id):
+        # Get the menu
+        menu = get_menu_items()
+
         # query the DB for content by ID
         content = ContentItem.objects.get(pk=content_id)
 
@@ -40,7 +47,8 @@ class ContentDisplay(View):
         return render(request, layout, {"content" : content,
                                         "latest_content" : latest_content,
                                         "featured_content" : featured_content,
-                                        "tags" : tags,})
+                                        "tags" : tags,
+                                        "menu" : menu,})
 
 
 class ContentDisplayList(View):
@@ -71,6 +79,9 @@ class ContentDisplayList(View):
             # If page is out of range (e.g. 9999), deliver last page of results.
             posts = paginator.page(paginator.num_pages)
 
+        # Get the menu
+        menu = get_menu_items()
+
         # Get the latest content for sidebar and footer
         latest_content = get_latest_content()
 
@@ -86,4 +97,5 @@ class ContentDisplayList(View):
                                                             "posts" : posts,
                                                             "latest_content" : latest_content,
                                                             "featured_content" : featured_content,
-                                                            "tags" : tags})
+                                                            "tags" : tags,
+                                                            "menu" : menu,})

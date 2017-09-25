@@ -1,4 +1,4 @@
-{% load static i18n %}<!DOCTYPE html>
+{% load static i18n %}{% load dictKeyLookup %}<!DOCTYPE html>
 <!--[if IE 9]> <html lang="zxx" class="ie9"> <![endif]-->
 <!--[if gt IE 9]> <html lang="zxx" class="ie"> <![endif]-->
 <!--[if !IE]><!-->
@@ -197,38 +197,61 @@
                     <div class="collapse navbar-collapse" id="navbar-collapse-1">
                       <!-- main-menu -->
                       <ul class="navbar-nav ml-xl-auto">
-
-
-                        <!-- mega-menu start -->
-                        <li class="nav-item dropdown  mega-menu mega-menu--wide">
-                          <a href="/tag/geeksabroad" class="nav-link dropdown-toggle" id="second-dropdown" aria-haspopup="false" aria-expanded="false">Geeks Abroad</a>
-
-                        </li>
-                        <!-- mega-menu end -->
+                        {% for nav in menu.main %}
                         <li class="nav-item dropdown ">
-                          <a href="/tag/gaming" class="nav-link dropdown-toggle" id="third-dropdown" aria-haspopup="false" aria-expanded="false">Gaming</a>
-                          <!--<ul class="dropdown-menu" aria-labelledby="third-dropdown">
-                            <li ><a href="features-dark-page.html">Youtube</a></li>
-                            <li ><a href="features-typography.html">Twitch</a></li>
-                          </ul>-->
+                          <a href="{% if nav.override_url == '' %}{% if nav.content %}/display/{{ nav.content.first.id }}{% endif %}{% else %}{{ nav.override_url }}{% endif %}" class="nav-link dropdown-toggle" id="{{ forloop.counter }}-dropdown"  aria-haspopup="true" aria-expanded="false">{{ nav.title }}</a>
+                          {% if menu|get:nav.title %}
+                          <ul class="dropdown-menu" aria-labelledby="{{ forloop.counter }}-dropdown">
+                            {% for subnav in menu|get:nav.title %}
+                              <li class="dropdown ">
+                                <a  class="{% if menu|get:subnav %}dropdown-toggle{% endif %}"  href="{% if subnav.override_url == '' %}{% if subnav.content.first.id %}/display/{{ subnav.content.first.id }}{% endif %}{% else %}{{ subnav.override_url }}{% endif %}">{{ subnav }} </a>
+                                {% if menu|get:subnav %}
+                                <ul class="dropdown-menu">
+                                  {% for thirdnav in menu|get:subnav %}
+                                  <li><a href="features-headers-default.html">{{ thirdnav }}</a></li>
+                                  {% endfor %}
+                                </ul>
+                                {% endif %}
+                              </li>
+                              {% endfor %}
+                            </ul>
+                            {% endif %}
                         </li>
-                        <!-- mega-menu start -->
-                        <li class="nav-item dropdown  mega-menu mega-menu--narrow">
-                          <a href="/tag/OS.Alt" class="nav-link dropdown-toggle" id="fourth-dropdown" aria-haspopup="false" aria-expanded="false">OS.Alt</a>
-                        </li>
-                        <!-- mega-menu end -->
-                        <li class="nav-item dropdown ">
-                          <a href="/tag/squirrels" class="nav-link dropdown-toggle" id="fifth-dropdown" aria-haspopup="false" aria-expanded="false">Squirrel Army</a>
-                        </li>
-                        <li class="nav-item dropdown ">
-                          <a href="/all" class="nav-link dropdown-toggle" id="sixth-dropdown" aria-haspopup="false" aria-expanded="false">News</a>
-                        </li>
-                        <li class="nav-item dropdown ">
-                          <a href="/credits/" class="nav-link dropdown-toggle" id="seventh-dropdown" aria-haspopup="false" aria-expanded="false">Credits</a>
-                        </li>
+                        {% endfor %}
                       </ul>
                       <!-- main-menu end -->
                     </div>
+
+                  {% if menu.vars %}
+                  <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                    <!-- main-menu -->
+                    <ul class="navbar-nav ml-xl-auto">
+                    <!-- mega-menu start -->
+                    <li class="nav-item dropdown  mega-menu mega-menu--wide">
+                      <a href="/tag/geeksabroad" class="nav-link dropdown-toggle" id="second-dropdown" aria-haspopup="false" aria-expanded="false">Geeks Abroad</a>
+                    </li>
+                    <!-- mega-menu end -->
+                    <li class="nav-item dropdown ">
+                      <a href="/tag/gaming" class="nav-link dropdown-toggle" id="third-dropdown" aria-haspopup="false" aria-expanded="false">Gaming</a>
+                    </li>
+                    <!-- mega-menu start -->
+                    <li class="nav-item dropdown  mega-menu mega-menu--narrow">
+                      <a href="/tag/OS.Alt" class="nav-link dropdown-toggle" id="fourth-dropdown" aria-haspopup="false" aria-expanded="false">OS.Alt</a>
+                    </li>
+                    <!-- mega-menu end -->
+                    <li class="nav-item dropdown ">
+                      <a href="/tag/squirrels" class="nav-link dropdown-toggle" id="fifth-dropdown" aria-haspopup="false" aria-expanded="false">Squirrel Army</a>
+                    </li>
+                    <li class="nav-item dropdown ">
+                      <a href="/all" class="nav-link dropdown-toggle" id="sixth-dropdown" aria-haspopup="false" aria-expanded="false">News</a>
+                    </li>
+                    <li class="nav-item dropdown ">
+                      <a href="/credits/" class="nav-link dropdown-toggle" id="seventh-dropdown" aria-haspopup="false" aria-expanded="false">Credits</a>
+                    </li>
+                  </ul>
+                </div>
+                {% endif %}
+
                   </nav>
                 </div>
                 <!-- main-navigation end -->
