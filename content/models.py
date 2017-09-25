@@ -118,7 +118,7 @@ class PublishHistory(models.Model):
     published = models.BooleanField()
 
     def __str__(self):
-        return self.content_item
+        return self.content_item.title
 
     class Meta:
         app_label = 'content'
@@ -136,7 +136,7 @@ class FeatureHistory(models.Model):
     featured = models.BooleanField()
 
     def __str__(self):
-        return self.content_item
+        return self.content_item.title
 
     class Meta:
         app_label = 'content'
