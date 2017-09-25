@@ -1,0 +1,950 @@
+{% extends "pages/home.html" %}
+{% load static i18n %}
+{% block content %}
+<!-- main-container start -->
+<!-- ================ -->
+<section class="main-container">
+
+  <div class="container">
+    <div class="row">
+
+      <!-- main start -->
+      <!-- ================ -->
+      <div class="main col-lg-8">
+
+        <!-- page-title start -->
+        <!-- ================ -->
+        <h1 class="page-title">Forms</h1>
+        <div class="separator-2"></div>
+        <!-- page-title end -->
+
+        <!-- Forms -->
+        <!-- ============================================================================== -->
+        <br>
+        <div class="alert alert-info alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+          </button>
+          For more info about forms please visit <a target="_blank" class="alert-link" href="http://getbootstrap.com/css/#forms">http://getbootstrap.com/css/#forms</a>.
+        </div>
+
+        <h2>Basic example</h2>
+        <form role="form">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputFile">File input</label>
+            <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+            <small id="fileHelp" class="form-text text-muted">Example block-level help text here.</small>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input">
+              Check me out
+            </label>
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <h2>Inline form</h2>
+        <form class="form-inline">
+          <label class="sr-only" for="inlineFormInput">Name</label>
+          <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Jane Doe">
+
+          <label class="sr-only" for="inlineFormInputGroup">Username</label>
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon">@</div>
+            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
+          </div>
+
+          <div class="form-check mb-2 mr-sm-2 mb-sm-0">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox"> Remember me
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <h2>Horizontal form</h2>
+        <form>
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+            </div>
+          </div>
+          <fieldset class="form-group">
+            <legend class="col-form-legend col-sm-2">Radios</legend>
+            <div class="row">
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                    Option one is this and that&mdash;be sure to include why it's great
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                    Option two can be something else and selecting it will deselect option one
+                  </label>
+                </div>
+                <div class="form-check disabled">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
+                    Option three is disabled
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <div class="form-group">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox"> Check me out
+              </label>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-12">
+              <button type="submit" class="btn btn-default">Sign in</button>
+            </div>
+          </div>
+        </form>
+        <h2>Text Area</h2>
+        <form role="form">
+          <div class="form-group">
+            <label for="exampleTextarea">Example textarea</label>
+            <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+          </div>
+        </form>
+        <h2>Checkboxes and radios</h2>
+        <form role="form">
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" value="">
+              Option one is this and that&mdash;be sure to include why it's great
+            </label>
+          </div>
+          <div class="form-check disabled">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" value="" disabled>
+              Option two is disabled
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> 1
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"> 2
+            </label>
+          </div>
+          <div class="form-check form-check-inline disabled">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled> 3
+            </label>
+          </div>
+          <br>
+          <br>
+          <br>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+              Option one is this and that&mdash;be sure to include why it's great
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+              Option two can be something else and selecting it will deselect option one
+            </label>
+          </div>
+          <div class="form-check disabled">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+              Option three is disabled
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
+            </label>
+          </div>
+          <div class="form-check form-check-inline disabled">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" disabled> 3
+            </label>
+          </div>
+        </form>
+        <h2>Selects</h2>
+        <form role="form">
+          <div class="form-group">
+            <label for="exampleSelect1">Example select</label>
+            <select class="form-control" id="exampleSelect1">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleSelect2">Example multiple select</label>
+            <select multiple class="form-control" id="exampleSelect2">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+        </form>
+        <h2>Disabled</h2>
+        <form>
+          <fieldset disabled>
+            <div class="form-group">
+              <label for="disabledTextInput">Disabled input</label>
+              <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+            </div>
+            <div class="form-group">
+              <label for="disabledSelect">Disabled select menu</label>
+              <select id="disabledSelect" class="form-control">
+                <option>Disabled select</option>
+              </select>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"> Can't check this
+              </label>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </fieldset>
+        </form>
+        <h2>Validation states</h2>
+        <form role="form">
+          <div class="form-group has-success">
+            <label class="form-control-label" for="inputSuccess1">Input with success</label>
+            <input type="text" class="form-control form-control-success" id="inputSuccess1">
+            <div class="form-control-feedback">Success! You've done it.</div>
+            <small class="form-text text-muted">Example help text that remains unchanged.</small>
+          </div>
+          <div class="form-group has-warning">
+            <label class="form-control-label" for="inputWarning1">Input with warning</label>
+            <input type="text" class="form-control form-control-warning" id="inputWarning1">
+            <div class="form-control-feedback">Shucks, check the formatting of that and try again.</div>
+            <small class="form-text text-muted">Example help text that remains unchanged.</small>
+          </div>
+          <div class="form-group has-danger">
+            <label class="form-control-label" for="inputDanger1">Input with danger</label>
+            <input type="text" class="form-control form-control-danger" id="inputDanger1">
+            <div class="form-control-feedback">Sorry, that username's taken. Try another?</div>
+            <small class="form-text text-muted">Example help text that remains unchanged.</small>
+          </div>
+        </form>
+        <h2>With optional icons</h2>
+        <form role="form">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group has-success has-feedback">
+                <label class="control-label" for="inputSuccess2">Input with success</label>
+                <input type="text" class="form-control" id="inputSuccess2">
+                <i class="fa fa-check form-control-feedback"></i>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group has-warning has-feedback">
+                <label class="control-label" for="inputWarning2">Input with warning</label>
+                <input type="text" class="form-control" id="inputWarning2">
+                <i class="fa fa-warning form-control-feedback"></i>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group has-error has-feedback">
+                <label class="control-label" for="inputError2">Input with error</label>
+                <input type="text" class="form-control" id="inputError2">
+                <i class="fa fa-times form-control-feedback"></i>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group has-feedback">
+                <label class="control-label">Username</label>
+                <input type="text" class="form-control">
+                <i class="fa fa-user form-control-feedback"></i>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group has-feedback">
+                <label class="control-label">Password</label>
+                <input type="password" class="form-control">
+                <i class="fa fa-lock form-control-feedback"></i>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group has-feedback">
+                <label class="control-label">Email</label>
+                <input type="email" class="form-control">
+                <i class="fa fa-envelope-o form-control-feedback"></i>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- main end -->
+
+      <!-- sidebar start -->
+      <!-- ================ -->
+      <aside class="col-lg-4 col-xl-3 offset-xl-1">
+        <div class="sidebar">
+          <div class="block clearfix">
+            <h3 class="title">Components</h3>
+            <div class="separator-2"></div>
+            <nav>
+              <ul class="nav flex-column list-style-icons">
+                <li class="nav-item"><a class="nav-link " href="components-social-icons.html"><i class="icon-share"></i> Social Icons</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-buttons.html"><i class="icon-flask"></i> Buttons</a></li>
+                <li class="nav-item"><a class="nav-link active" href="components-forms.html"><i class="icon-eq"></i> Forms</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-tabs-and-pills.html"><i class=" icon-dot-3"></i> Tabs &amp; Pills</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-accordions.html"><i class="icon-menu-outline"></i> Accordions</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-progress-bars.html"><i class="icon-chart-line"></i> Progress Bars</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-call-to-action.html"><i class="icon-chat"></i> Call to Action Blocks</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-alerts-and-callouts.html"><i class="icon-info-circled"></i> Alerts &amp; Callouts</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-content-sliders.html"><i class="icon-star-filled"></i> Content Sliders</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-charts.html"><i class="icon-chart-pie"></i> Charts</a></li>
+                <li class="nav-item"><a  class="nav-link" href="components-page-loaders.html"><i class="icon-cw"></i> Page Loaders</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-icon-boxes.html"><i class="icon-picture-outline"></i> Icon Boxes</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-image-boxes.html"><i class="icon-camera-1"></i> Image Boxes</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-fullwidth-sections.html"><i class="icon-code-1"></i> Full Width Sections</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-animations.html"><i class="icon-docs"></i> Animations</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-video-and-audio.html"><i class="icon-video"></i> Video &amp; Audio</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-lightbox.html"><i class="fa fa-search-plus pl-1"></i> Lightbox</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-counters.html"><i class="icon-sort-numeric"></i> Counters</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-modals.html"><i class="icon-popup"></i> Modals</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-tables.html"><i class="fa fa-table pl-1"></i> Tables</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-text-rotators.html"><i class="icon-arrows-ccw"></i> Text Rotators</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-announcement-default.html"><i class="icon-megaphone"></i> Announcement</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-separators.html"><i class="icon-star"></i> Separators</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </aside>
+      <!-- sidebar end -->
+
+    </div>
+  </div>
+</section>
+<!-- main-container end -->
+
+<!-- section start -->
+<!-- ================ -->
+<div class="section light-gray-bg">
+  <div class="container">
+    <h2>Form elements (Gray Background)</h2>
+    <form role="form">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group has-success has-feedback">
+            <label class="control-label" for="inputSuccess3">Input with success</label>
+            <input type="text" class="form-control" id="inputSuccess3">
+            <i class="fa fa-check form-control-feedback"></i>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group has-warning has-feedback">
+            <label class="control-label" for="inputWarning3">Input with warning</label>
+            <input type="text" class="form-control" id="inputWarning3">
+            <i class="fa fa-warning form-control-feedback"></i>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group has-error has-feedback">
+            <label class="control-label" for="inputError3">Input with error</label>
+            <input type="text" class="form-control" id="inputError3">
+            <i class="fa fa-times form-control-feedback"></i>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group has-feedback">
+            <label class="control-label">Username</label>
+            <input type="text" class="form-control">
+            <i class="fa fa-user form-control-feedback"></i>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group has-feedback">
+            <label class="control-label">Password</label>
+            <input type="password" class="form-control">
+            <i class="fa fa-lock form-control-feedback"></i>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group has-feedback">
+            <label class="control-label">Email</label>
+            <input type="email" class="form-control">
+            <i class="fa fa-envelope-o form-control-feedback"></i>
+          </div>
+        </div>
+      </div>
+    </form>
+    <form role="form">
+      <div class="form-group">
+        <label for="disabledTextInput2">Disabled input</label>
+        <input type="text" id="disabledTextInput2" class="form-control" placeholder="Disabled input" disabled="">
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" value="">
+          Option one is this and that&mdash;be sure to include why it's great
+        </label>
+      </div>
+      <div class="form-check disabled">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" value="" disabled>
+          Option two is disabled
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios12" value="option1" checked>
+          Option one is this and that&mdash;be sure to include why it's great
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios22" value="option2">
+          Option two can be something else and selecting it will deselect option one
+        </label>
+      </div>
+      <div class="form-check disabled">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios32" value="option3" disabled>
+          Option three is disabled
+        </label>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+</div>
+<!-- section end -->
+<div class="space"></div>
+<!-- section start -->
+<!-- ================ -->
+<div class="section dark-bg text-muted">
+  <div class="container">
+    <h2>Form elements (Dark Background)</h2>
+    <form role="form">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group has-success has-feedback">
+            <label class="control-label" for="inputSuccess4">Input with success</label>
+            <input type="text" class="form-control" id="inputSuccess4">
+            <i class="fa fa-check form-control-feedback"></i>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group has-warning has-feedback">
+            <label class="control-label" for="inputWarning4">Input with warning</label>
+            <input type="text" class="form-control" id="inputWarning4">
+            <i class="fa fa-warning form-control-feedback"></i>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group has-error has-feedback">
+            <label class="control-label" for="inputError4">Input with error</label>
+            <input type="text" class="form-control" id="inputError4">
+            <i class="fa fa-times form-control-feedback"></i>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group has-feedback">
+            <label class="control-label">Username</label>
+            <input type="text" class="form-control">
+            <i class="fa fa-user form-control-feedback"></i>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group has-feedback">
+            <label class="control-label">Password</label>
+            <input type="password" class="form-control">
+            <i class="fa fa-lock form-control-feedback"></i>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group has-feedback">
+            <label class="control-label">Email</label>
+            <input type="email" class="form-control">
+            <i class="fa fa-envelope-o form-control-feedback"></i>
+          </div>
+        </div>
+      </div>
+    </form>
+    <form role="form">
+      <div class="form-group">
+        <label for="disabledTextInput23">Disabled input</label>
+        <input type="text" id="disabledTextInput23" class="form-control" placeholder="Disabled input" disabled="">
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" value="">
+          Option one is this and that&mdash;be sure to include why it's great
+        </label>
+      </div>
+      <div class="form-check disabled">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" value="" disabled>
+          Option two is disabled
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios13" value="option1" checked>
+          Option one is this and that&mdash;be sure to include why it's great
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios23" value="option2">
+          Option two can be something else and selecting it will deselect option one
+        </label>
+      </div>
+      <div class="form-check disabled">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios33" value="option3" disabled>
+          Option three is disabled
+        </label>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+</div>
+<!-- section end -->
+<div class="container">
+  <div class="alert alert-info alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+    The <strong>Default Background</strong> is defined by the current color scheme.
+  </div>
+</div>
+<!-- section start -->
+<!-- ================ -->
+<div class="section default-bg">
+  <div class="container">
+    <h2>Form elements (Default Background)</h2>
+    <form role="form">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group has-success has-feedback">
+            <label class="control-label" for="inputSuccess5">Input with success</label>
+            <input type="text" class="form-control" id="inputSuccess5">
+            <i class="fa fa-check form-control-feedback"></i>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group has-warning has-feedback">
+            <label class="control-label" for="inputWarning5">Input with warning</label>
+            <input type="text" class="form-control" id="inputWarning5">
+            <i class="fa fa-warning form-control-feedback"></i>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group has-error has-feedback">
+            <label class="control-label" for="inputError5">Input with error</label>
+            <input type="text" class="form-control" id="inputError5">
+            <i class="fa fa-times form-control-feedback"></i>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group has-feedback">
+            <label class="control-label">Username</label>
+            <input type="text" class="form-control">
+            <i class="fa fa-user form-control-feedback"></i>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group has-feedback">
+            <label class="control-label">Password</label>
+            <input type="password" class="form-control">
+            <i class="fa fa-lock form-control-feedback"></i>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group has-feedback">
+            <label class="control-label">Email</label>
+            <input type="email" class="form-control">
+            <i class="fa fa-envelope-o form-control-feedback"></i>
+          </div>
+        </div>
+      </div>
+    </form>
+    <form role="form">
+      <div class="form-group">
+        <label for="disabledTextInput24">Disabled input</label>
+        <input type="text" id="disabledTextInput24" class="form-control" placeholder="Disabled input" disabled="">
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" value="">
+          Option one is this and that&mdash;be sure to include why it's great
+        </label>
+      </div>
+      <div class="form-check disabled">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" value="" disabled>
+          Option two is disabled
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios14" value="option1" checked>
+          Option one is this and that&mdash;be sure to include why it's great
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios24" value="option2">
+          Option two can be something else and selecting it will deselect option one
+        </label>
+      </div>
+      <div class="form-check disabled">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios34" value="option3" disabled>
+          Option three is disabled
+        </label>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+</div>
+<!-- section end -->
+<div class="space"></div>
+<!-- section start -->
+<!-- ================ -->
+<footer class="section footer">
+  <div class="container">
+    <div class="footer-content">
+      <h2>Form elements (Footer)</h2>
+      <form role="form">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group has-success has-feedback">
+              <label class="control-label" for="inputSuccess6">Input with success</label>
+              <input type="text" class="form-control" id="inputSuccess6">
+              <i class="fa fa-check form-control-feedback"></i>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group has-warning has-feedback">
+              <label class="control-label" for="inputWarning6">Input with warning</label>
+              <input type="text" class="form-control" id="inputWarning6">
+              <i class="fa fa-warning form-control-feedback"></i>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group has-error has-feedback">
+              <label class="control-label" for="inputError6">Input with error</label>
+              <input type="text" class="form-control" id="inputError6">
+              <i class="fa fa-times form-control-feedback"></i>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group has-feedback">
+              <label class="control-label">Username</label>
+              <input type="text" class="form-control">
+              <i class="fa fa-user form-control-feedback"></i>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group has-feedback">
+              <label class="control-label">Password</label>
+              <input type="password" class="form-control">
+              <i class="fa fa-lock form-control-feedback"></i>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group has-feedback">
+              <label class="control-label">Email</label>
+              <input type="email" class="form-control">
+              <i class="fa fa-envelope-o form-control-feedback"></i>
+            </div>
+          </div>
+        </div>
+      </form>
+      <form role="form">
+        <div class="form-group">
+          <label for="disabledTextInput26">Disabled input</label>
+          <input type="text" id="disabledTextInput26" class="form-control" placeholder="Disabled input" disabled="">
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" value="">
+            Option one is this and that&mdash;be sure to include why it's great
+          </label>
+        </div>
+        <div class="form-check disabled">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" value="" disabled>
+            Option two is disabled
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios16" value="option1" checked>
+            Option one is this and that&mdash;be sure to include why it's great
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios26" value="option2">
+            Option two can be something else and selecting it will deselect option one
+          </label>
+        </div>
+        <div class="form-check disabled">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios36" value="option3" disabled>
+            Option three is disabled
+          </label>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
+  </div>
+</footer>
+<!-- section end -->
+<div class="space"></div>
+
+<!-- footer top start -->
+<!-- ================ -->
+<div class="dark-bg footer-top animated-text">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="call-to-action text-center">
+          <div class="row">
+            <div class="col-md-8">
+              <h2 class="mt-4">Mouse over this area for an important message</h2>
+              <h2 class="mt-4">Butts... lol</h2>
+            </div>
+            <div class="col-md-4">
+              <p class="mt-3"><a href="javascript:AlertIt()" id="notouch" class="btn btn-animated radius-50 btn-lg btn-gray-transparent">DO NOT TOUCH<i class="fa fa-exclamation-triangle pl-20"></i></a></p>
+            </div>
+            <script type="text/javascript">
+            function AlertIt() {
+            alert("Don't go jump off a cliff")
+            }
+            </script>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- footer top end -->
+<!-- footer start (Add "dark" class to #footer in order to enable dark footer) -->
+<!-- ================ -->
+<footer id="footer" class="clearfix dark">
+
+  <!-- .footer start -->
+  <!-- ================ -->
+  <div class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="footer-content">
+              <h2 class="title">Geeks Abroad</h2>
+              <div class="separator-2"></div>
+
+              {% for item in latest_content.ga %}
+              <div class="media margin-clear">
+                <div class="d-flex pr-2">
+                  <div class="overlay-container">
+                    <img class="media-object" src="{{ MEDIA_URL }}{{ item.thumbnail_image }}" alt="blog-thumb">
+                    <a href="/display/{{ post.id }}" class="overlay-link small"><i class="fa fa-link"></i></a>
+                  </div>
+                </div>
+                <div class="media-body">
+                  <h6 class="media-heading"><a href="/display/{{ item.id }}">{{ item.title }}</a></h6>
+                  <p class="small margin-clear"><i class="fa fa-calendar pr-2"></i>{{ item.updated_at }}</p>
+                </div>
+              </div>
+              <hr>
+              {% empty %}No Recent Posts For This Tag!{% endfor %}
+
+              <div class="text-right space-top">
+                <a href="blog-large-image-right-sidebar.html" class="link-dark"><i class="fa fa-plus-circle pl-1 pr-1"></i>More</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="footer-content">
+              <h2 class="title">Gaming</h2>
+              <div class="separator-2"></div>
+
+              {% for item in latest_content.gaming %}
+              <div class="media margin-clear">
+                <div class="d-flex pr-2">
+                  <div class="overlay-container">
+                    <img class="media-object" src="{{ MEDIA_URL }}{{ item.thumbnail_image }}" alt="blog-thumb">
+                    <a href="/display/{{ post.id }}" class="overlay-link small"><i class="fa fa-link"></i></a>
+                  </div>
+                </div>
+                <div class="media-body">
+                  <h6 class="media-heading"><a href="/display/{{ item.id }}">{{ item.title }}</a></h6>
+                  <p class="small margin-clear"><i class="fa fa-calendar pr-2"></i>Mar 23, 2017</p>
+                </div>
+              </div>
+              <hr>
+              {% empty %}No Recent Posts For This Tag!{% endfor %}
+
+              <div class="text-right space-top">
+                <a href="blog-large-image-right-sidebar.html" class="link-dark"><i class="fa fa-plus-circle pl-1 pr-1"></i>More</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="footer-content">
+              <h2 class="title">OS.Alt</h2>
+              <div class="separator-2"></div>
+
+              {% for item in latest_content.osalt %}
+              <div class="media margin-clear">
+                <div class="d-flex pr-2">
+                  <div class="overlay-container">
+                    <img class="media-object" src="{{ MEDIA_URL }}{{ item.thumbnail_image }}" alt="blog-thumb">
+                    <a href="/display/{{ post.id }}" class="overlay-link small"><i class="fa fa-link"></i></a>
+                  </div>
+                </div>
+                <div class="media-body">
+                  <h6 class="media-heading"><a href="/display/{{ item.id }}">{{ item.title }}</a></h6>
+                  <p class="small margin-clear"><i class="fa fa-calendar pr-2"></i>Mar 23, 2017</p>
+                </div>
+              </div>
+              <hr>
+              {% empty %}No Recent Posts For This Tag!{% endfor %}
+
+              <div class="text-right space-top">
+                <a href="blog-large-image-right-sidebar.html" class="link-dark"><i class="fa fa-plus-circle pl-1 pr-1"></i>More</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="footer-content">
+              <h2 class="title">Squirrel Army</h2>
+              <div class="separator-2"></div>
+
+              {% for item in latest_content.sa %}
+              <div class="media margin-clear">
+                <div class="d-flex pr-2">
+                  <div class="overlay-container">
+                    <img class="media-object" src="{{ MEDIA_URL }}{{ item.thumbnail_image }}" alt="blog-thumb">
+                    <a href="/display/{{ post.id }}" class="overlay-link small"><i class="fa fa-link"></i></a>
+                  </div>
+                </div>
+                <div class="media-body">
+                  <h6 class="media-heading"><a href="/display/{{ item.id }}">{{ item.title }}</a></h6>
+                  <p class="small margin-clear"><i class="fa fa-calendar pr-2"></i>Mar 23, 2017</p>
+                </div>
+              </div>
+              <hr>
+              {% empty %}No Recent Posts For This Tag!{% endfor %}
+
+              <div class="text-right space-top">
+                <a href="blog-large-image-right-sidebar.html" class="link-dark"><i class="fa fa-plus-circle pl-1 pr-1"></i>More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- .footer end -->
+
+  <!-- .subfooter start -->
+  <!-- ================ -->
+  <div class="subfooter">
+    <div class="container">
+      <div class="subfooter-inner">
+        <div class="row">
+          <div class="col-md-12">
+            <p class="text-center">Geek Beacon </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- .subfooter end -->
+
+</footer>
+<!-- footer end -->
+</div>
+<!-- page-wrapper end -->
+
+<!-- JavaScript files placed at the end of the document so the pages load faster -->
+<!-- ================================================== -->
+<!-- Jquery and Bootstap core js files -->
+<script type="text/javascript" src="{% static 'plugins/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/tether.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<!-- Modernizr javascript -->
+<script type="text/javascript" src="{% static 'plugins/modernizr.js' %}"></script>
+<!-- jQuery Revolution Slider  -->
+<script type="text/javascript" src="{% static 'plugins/rs-plugin-5/js/jquery.themepunch.tools.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/rs-plugin-5/js/jquery.themepunch.revolution.min.js' %}"></script>
+<!-- Isotope javascript -->
+<script type="text/javascript" src="{% static 'plugins/isotope/isotope.pkgd.min.js' %}"></script>
+<!-- Magnific Popup javascript -->
+<script type="text/javascript" src="{% static 'plugins/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+<!-- Appear javascript -->
+<script type="text/javascript" src="{% static 'plugins/waypoints/jquery.waypoints.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/waypoints/sticky.min.js' %}"></script>
+<!-- Count To javascript -->
+<script type="text/javascript" src="{% static 'plugins/jquery.countTo.js' %}"></script>
+<!-- Parallax javascript -->
+<script src="{% static 'plugins/jquery.parallax-1.1.3.js' %}"></script>
+<!-- Contact form -->
+<script src="{% static 'plugins/jquery.validate.js' %}"></script>
+<!-- Morphext -->
+<script type="text/javascript" src="{% static 'plugins/morphext/morphext.min.js' %}"></script>
+<!-- Owl carousel javascript -->
+<script type="text/javascript" src="{% static 'plugins/owlcarousel2/owl.carousel.min.js' %}"></script>
+<!-- Initialization of Plugins -->
+<script type="text/javascript" src="{% static 'js/template.js' %}"></script>
+<!-- Custom Scripts -->
+<script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+
+</body>
+{% endblock content %}
+</html>

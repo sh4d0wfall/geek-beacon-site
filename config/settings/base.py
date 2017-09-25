@@ -45,6 +45,7 @@ DJANGO_APPS = [
 
     # Admin
     'django.contrib.admin',
+    'django.contrib.flatpages',
 ]
 THIRD_PARTY_APPS = [
     'crispy_forms',  # Form layouts
@@ -60,6 +61,7 @@ LOCAL_APPS = [
     # Your stuff: custom apps go here
     'tinymce',
     'content',
+    'widget_tweaks',
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

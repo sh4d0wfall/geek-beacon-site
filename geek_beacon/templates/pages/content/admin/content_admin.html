@@ -1,0 +1,138 @@
+{% extends "pages/home.html" %}
+{% load static i18n %}
+{% block content %}
+{% load widget_tweaks %}
+{{ form.media }}
+
+<!-- main-container start -->
+<!-- ================ -->
+<section class="main-container">
+
+  <div class="container">
+    <div class="row">
+
+      <!-- main start -->
+      <!-- ================ -->
+      <div class="main col-lg-8">
+
+        <!-- page-title start -->
+        <!-- ================ -->
+        <h1 class="page-title">Create Content</h1>
+        <div class="separator-2"></div>
+        <!-- page-title end -->
+
+        <!-- Forms -->
+        <!-- ============================================================================== -->
+        <br>
+        <form action="/your-name/" method="post">
+            {% csrf_token %}
+            {% for hidden in form.hidden_fields %}
+              {{ hidden }}
+            {% endfor %}
+
+            {% for field in form.visible_fields %}
+              <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {% if field.label == "Published" or field.label == "Featured" %}
+                {{ field|add_class:'form-check' }}
+                {% else %}
+                {{ field|add_class:'form-control' }}
+                {% endif %}
+                {% for error in field.errors %}
+                  <span class="help-block">{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% endfor %}
+            <input type="submit" value="Submit" />
+        </form>
+
+      </div>
+      <!-- main end -->
+
+      <!-- sidebar start -->
+      <!-- ================ -->
+      <aside class="col-lg-4 col-xl-3 offset-xl-1">
+        <div class="sidebar">
+          <div class="block clearfix">
+            <h3 class="title">Components</h3>
+            <div class="separator-2"></div>
+            <nav>
+              <ul class="nav flex-column list-style-icons">
+                <li class="nav-item"><a class="nav-link " href="components-social-icons.html"><i class="icon-share"></i> Social Icons</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-buttons.html"><i class="icon-flask"></i> Buttons</a></li>
+                <li class="nav-item"><a class="nav-link active" href="components-forms.html"><i class="icon-eq"></i> Forms</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-tabs-and-pills.html"><i class=" icon-dot-3"></i> Tabs &amp; Pills</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-accordions.html"><i class="icon-menu-outline"></i> Accordions</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-progress-bars.html"><i class="icon-chart-line"></i> Progress Bars</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-call-to-action.html"><i class="icon-chat"></i> Call to Action Blocks</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-alerts-and-callouts.html"><i class="icon-info-circled"></i> Alerts &amp; Callouts</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-content-sliders.html"><i class="icon-star-filled"></i> Content Sliders</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-charts.html"><i class="icon-chart-pie"></i> Charts</a></li>
+                <li class="nav-item"><a  class="nav-link" href="components-page-loaders.html"><i class="icon-cw"></i> Page Loaders</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-icon-boxes.html"><i class="icon-picture-outline"></i> Icon Boxes</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-image-boxes.html"><i class="icon-camera-1"></i> Image Boxes</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-fullwidth-sections.html"><i class="icon-code-1"></i> Full Width Sections</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-animations.html"><i class="icon-docs"></i> Animations</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-video-and-audio.html"><i class="icon-video"></i> Video &amp; Audio</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-lightbox.html"><i class="fa fa-search-plus pl-1"></i> Lightbox</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-counters.html"><i class="icon-sort-numeric"></i> Counters</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-modals.html"><i class="icon-popup"></i> Modals</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-tables.html"><i class="fa fa-table pl-1"></i> Tables</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-text-rotators.html"><i class="icon-arrows-ccw"></i> Text Rotators</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-announcement-default.html"><i class="icon-megaphone"></i> Announcement</a></li>
+                <li class="nav-item"><a class="nav-link " href="components-separators.html"><i class="icon-star"></i> Separators</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </aside>
+      <!-- sidebar end -->
+
+    </div>
+  </div>
+</section>
+<!-- main-container end -->
+
+<div class="space"></div>
+
+
+
+</div>
+<!-- page-wrapper end -->
+
+<!-- JavaScript files placed at the end of the document so the pages load faster -->
+<!-- ================================================== -->
+<!-- Jquery and Bootstap core js files -->
+<script type="text/javascript" src="{% static 'plugins/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/tether.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<!-- Modernizr javascript -->
+<script type="text/javascript" src="{% static 'plugins/modernizr.js' %}"></script>
+<!-- jQuery Revolution Slider  -->
+<script type="text/javascript" src="{% static 'plugins/rs-plugin-5/js/jquery.themepunch.tools.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/rs-plugin-5/js/jquery.themepunch.revolution.min.js' %}"></script>
+<!-- Isotope javascript -->
+<script type="text/javascript" src="{% static 'plugins/isotope/isotope.pkgd.min.js' %}"></script>
+<!-- Magnific Popup javascript -->
+<script type="text/javascript" src="{% static 'plugins/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+<!-- Appear javascript -->
+<script type="text/javascript" src="{% static 'plugins/waypoints/jquery.waypoints.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/waypoints/sticky.min.js' %}"></script>
+<!-- Count To javascript -->
+<script type="text/javascript" src="{% static 'plugins/jquery.countTo.js' %}"></script>
+<!-- Parallax javascript -->
+<script src="{% static 'plugins/jquery.parallax-1.1.3.js' %}"></script>
+<!-- Contact form -->
+<script src="{% static 'plugins/jquery.validate.js' %}"></script>
+<!-- Morphext -->
+<script type="text/javascript" src="{% static 'plugins/morphext/morphext.min.js' %}"></script>
+<!-- Owl carousel javascript -->
+<script type="text/javascript" src="{% static 'plugins/owlcarousel2/owl.carousel.min.js' %}"></script>
+<!-- Initialization of Plugins -->
+<script type="text/javascript" src="{% static 'js/template.js' %}"></script>
+<!-- Custom Scripts -->
+<script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+
+</body>
+{% endblock content %}
+</html>
