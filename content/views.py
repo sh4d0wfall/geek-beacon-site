@@ -121,6 +121,6 @@ class ContentAdmin(View):
 
         # if a GET (or any other method) we'll create a blank form
         else:
-            form = NameForm()
+            form = AddContentForm()
 
         return render(request, "pages/content/admin/content_admin.html",{"form": form})
