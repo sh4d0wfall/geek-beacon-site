@@ -1,4 +1,4 @@
-from content.models import ContentItem, ContentTag
+from content.models import ContentItem, ContentTag, FeatureHistory
 
 def get_latest_content():
     """Query the database for the latest content and add it to the array"""
@@ -9,8 +9,14 @@ def get_latest_content():
     latest_content['gaming'] = ContentItem.objects.filter(tags__name='Gaming').order_by('updated_at')[:4]
     latest_content['osalt'] = ContentItem.objects.filter(tags__name='OS.Alt').order_by('updated_at')[:4]
     latest_content['sqa'] = ContentItem.objects.filter(tags__name='Squirrel Army').order_by('updated_at')[:4]
-    
+
     return latest_content
+
+def get_featured_content():
+    """Query the database for the latest featured content and add it to the array"""
+
+    return FeatureHistory.objects.filter(featured=True).order_by('updated_at')[:3]
+
 
 
 def layout_selector(layout):
