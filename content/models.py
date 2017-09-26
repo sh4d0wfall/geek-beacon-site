@@ -10,7 +10,7 @@ class MenuItem(models.Model):
 
     title = models.CharField(max_length=100)
     parent = models.ForeignKey('self', blank=True, null=True)
-    content = models.ManyToManyField('ContentItem', blank=True)
+    content = models.ForeignKey('ContentItem', blank=True, null=True)
     override_url = models.CharField(max_length=1000, blank=True, null=True)
     priority = models.IntegerField()
     published = models.BooleanField()

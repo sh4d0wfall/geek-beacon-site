@@ -1,0 +1,205 @@
+{% extends "pages/home.html" %}
+{% load static i18n %}
+{% block content %}
+{% load widget_tweaks %}
+{{ form.media }}
+
+<!-- main-container start -->
+<!-- ================ -->
+<section class="main-container">
+
+  <div class="container">
+    <div class="row">
+
+      <!-- main start -->
+      <!-- ================ -->
+      <div class="main col-lg-8">
+
+        <!-- page-title start -->
+        <!-- ================ -->
+        <h1 class="page-title">Create Content</h1>
+        <div class="separator-2"></div>
+        <!-- page-title end -->
+
+        <!-- Forms -->
+        <!-- ============================================================================== -->
+        <br>
+        <form action="/content/edit/{{ content_id }}/" method="post">
+            {% csrf_token %}
+            {% for hidden in form.hidden_fields %}
+              {{ hidden }}
+            {% endfor %}
+
+            <div class="form-group">
+                <label for="id_title">Title</label>
+                {{ form.title|add_class:'form-control' }}
+                {% for error in form.title.errors %}
+                  <span class="help-block">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+
+            <div class="form-group">
+                <label for="id_description">Description</label>
+                {{ form.description|add_class:'form-control' }}
+                {% for error in form.description.errors %}
+                  <span class="help-block">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="id_body">Body</label>
+                {{ form.body|add_class:'form-control' }}
+                {% for error in form.body.errors %}
+                  <span class="help-block">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="id_header_image">Header Image</label>
+                {{ form.header_image|add_class:'form-control' }}
+                {% for error in form.header_image.errors %}
+                  <span class="help-block">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="id_thumbnail_image">Thumbnail Image</label>
+                {{ form.thumbnail_image|add_class:'form-control' }}
+                {% for error in form.thumbnail_image.errors %}
+                  <span class="help-block">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="id_thumbnail_image">Featured Image</label>
+                {{ form.featured_image|add_class:'form-control' }}
+                {% for error in form.featured_image.errors %}
+                  <span class="help-block">{{ error }}</span>
+                {% endfor %}
+            </div>
+      </div>
+      <!-- main end -->
+
+      <!-- sidebar start -->
+      <!-- ================ -->
+      <aside class="col-lg-4 col-xl-3 offset-xl-1">
+        <div class="sidebar">
+          <div class="block clearfix">
+            <nav>
+              <ul class="nav flex-column list-style-icons">
+                <li class="nav-item"><input type="submit" value="Save" class="btn btn-default" style="width:100%;"/></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="block clearfix">
+            <h3 class="title">Author</h3>
+            <div class="separator-2"></div>
+            <nav>
+              <ul class="nav flex-column list-style-icons">
+                <li class="nav-item">{{ form.author|add_class:'form-control' }}</li>
+              </ul>
+            </nav>
+          </div>
+          <div class="block clearfix">
+            <h3 class="title">Category</h3>
+            <div class="separator-2"></div>
+            <nav>
+              <ul class="nav flex-column list-style-icons">
+                <li class="nav-item">{{ form.category|add_class:'form-control' }}</li>
+              </ul>
+            </nav>
+          </div>
+          <div class="block clearfix">
+            <h3 class="title">Tags</h3>
+            <div class="separator-2"></div>
+            <nav>
+              <ul class="nav flex-column list-style-icons">
+                <li class="nav-item">{{ form.tags|add_class:'form-control' }}</li>
+              </ul>
+            </nav>
+          </div>
+          <div class="block clearfix">
+            <h3 class="title">Status</h3>
+            <div class="separator-2"></div>
+            <nav>
+              <ul class="nav flex-column list-style-icons">
+                <li class="nav-item">
+                  {{ form.published|add_class:'form-check form-check-inline' }}
+                  <label for="published"><strong>Publish</strong></label>
+                </li>
+                <li class="nav-item">
+                  {{ form.featured|add_class:'form-check form-check-inline' }}
+                  <label for="featured"><strong>Feature</strong></label>
+                </li>
+
+              </ul>
+            </nav>
+          </div>
+          <div class="block clearfix">
+            <h3 class="title">Content Type</h3>
+            <div class="separator-2"></div>
+            <nav>
+              <ul class="nav flex-column list-style-icons">
+                <li class="nav-item">{{ form.content_type|add_class:'form-control' }}</li>
+              </ul>
+            </nav>
+          </div>
+          <div class="block clearfix">
+            <h3 class="title">Layout</h3>
+            <div class="separator-2"></div>
+            <nav>
+              <ul class="nav flex-column list-style-icons">
+                <li class="nav-item">{{ form.layout|add_class:'form-control' }}</li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </aside>
+      <!-- sidebar end -->
+
+      </form>
+    </div>
+  </div>
+</section>
+<!-- main-container end -->
+
+<div class="space"></div>
+
+
+
+</div>
+<!-- page-wrapper end -->
+
+<!-- JavaScript files placed at the end of the document so the pages load faster -->
+<!-- ================================================== -->
+<!-- Jquery and Bootstap core js files -->
+<script type="text/javascript" src="{% static 'plugins/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/tether.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<!-- Modernizr javascript -->
+<script type="text/javascript" src="{% static 'plugins/modernizr.js' %}"></script>
+<!-- jQuery Revolution Slider  -->
+<script type="text/javascript" src="{% static 'plugins/rs-plugin-5/js/jquery.themepunch.tools.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/rs-plugin-5/js/jquery.themepunch.revolution.min.js' %}"></script>
+<!-- Isotope javascript -->
+<script type="text/javascript" src="{% static 'plugins/isotope/isotope.pkgd.min.js' %}"></script>
+<!-- Magnific Popup javascript -->
+<script type="text/javascript" src="{% static 'plugins/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+<!-- Appear javascript -->
+<script type="text/javascript" src="{% static 'plugins/waypoints/jquery.waypoints.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/waypoints/sticky.min.js' %}"></script>
+<!-- Count To javascript -->
+<script type="text/javascript" src="{% static 'plugins/jquery.countTo.js' %}"></script>
+<!-- Parallax javascript -->
+<script src="{% static 'plugins/jquery.parallax-1.1.3.js' %}"></script>
+<!-- Contact form -->
+<script src="{% static 'plugins/jquery.validate.js' %}"></script>
+<!-- Morphext -->
+<script type="text/javascript" src="{% static 'plugins/morphext/morphext.min.js' %}"></script>
+<!-- Owl carousel javascript -->
+<script type="text/javascript" src="{% static 'plugins/owlcarousel2/owl.carousel.min.js' %}"></script>
+<!-- Initialization of Plugins -->
+<script type="text/javascript" src="{% static 'js/template.js' %}"></script>
+<!-- Custom Scripts -->
+<script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+
+</body>
+{% endblock content %}
+</html>

@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from content.models import ContentItem, ContentTag
+from django.http import HttpResponseRedirect
+from content.models import ContentItem, ContentTag, PublishHistory, FeatureHistory
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from content.view_utils import *
-from .forms import AddContentForm
+from .forms import AddContentForm, AddMenuItemForm
 
 
 class HomePage(View):
@@ -104,23 +105,227 @@ class ContentDisplayList(View):
 
 
 
-class ContentAdmin(View):
-    """Content Administrator View"""
+class ContentAdminHome(View):
+    """Content Administrator Home View"""
 
-    def get(self, request, tag=None):
-        # if this is a POST request we need to process the form data
-        if request.method == 'POST':
-            # create a form instance and populate it with data from the request:
-            form = AddContentForm(request.POST)
-            # check whether it's valid:
-            if form.is_valid():
-                # process the data in form.cleaned_data as required
-                print(form.cleaned_data)
-                # redirect to a new URL:
-                return HttpResponseRedirect('/thanks/')
+    def get(self, request, operation=None):
 
-        # if a GET (or any other method) we'll create a blank form
-        else:
-            form = AddContentForm()
+        menu = get_menu_items()
+        content = ContentItem.objects.all()
+        return render(request, "pages/content/admin/content_admin.html",{"menu": menu,
+                                                                         "content" : content})
 
-        return render(request, "pages/content/admin/content_admin.html",{"form": form})
+class MenuAdminHome(View):
+    """Menu Administrator Home View"""
+
+    def get(self, request, operation=None):
+
+        menu = get_menu_items()
+        content = MenuItem.objects.all()
+        return render(request, "pages/content/admin/menu/menu_admin.html",{"menu": menu,
+                                                                         "content" : content})
+
+
+class AddMenuItem(View):
+    """View to Add Menu Items"""
+
+    def get(self, request, operation=None):
+
+        menu = get_menu_items()
+        form = AddMenuItemForm()
+        return render(request, "pages/content/admin/menu/menu_item_add.html",{"form": form,
+                                                                         "menu" : menu})
+
+    def post(self, request, operation=None):
+        form = AddMenuItemForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            print(form.cleaned_data)
+            # redirect to a new URL:
+            return HttpResponseRedirect('/content/admin/')
+
+
+class AddContent(View):
+    """View to Add Content"""
+
+    def get(self, request):
+
+        menu = get_menu_items()
+        form = AddContentForm()
+        return render(request, "pages/content/admin/add_content.html",{"form": form,
+                                                                         "menu" : menu})
+
+    def post(self, request):
+        form = AddContentForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+
+            # process the data in form.cleaned_data as required
+            from django.db import models
+            try:
+                content = ContentItem()
+            except Exception as e:
+                print(e)
+            content.title = form.cleaned_data['title']
+            content.author = form.cleaned_data['author']
+            content.header_image = form.cleaned_data['header_image']
+            content.thumbnail_image = form.cleaned_data['thumbnail_image']
+            content.description = form.cleaned_data['description']
+            content.body = form.cleaned_data['body']
+            content.category = form.cleaned_data['category']
+            content.layout = form.cleaned_data['layout']
+            content.content_type = form.cleaned_data['content_type']
+            content.save()
+            content.tags = form.cleaned_data['tags']
+            content.save()
+
+            published = PublishHistory()
+            published.content_item = ContentItem.objects.get(id=content.id)
+            published.published = form.cleaned_data['published']
+            published.save()
+
+            featured = FeatureHistory()
+            featured.content_item = ContentItem.objects.get(id=content.id)
+            featured.featured = form.cleaned_data['featured']
+            featured.image = form.cleaned_data['featured_image']
+            featured.save()
+
+            return HttpResponseRedirect('/content/admin/')
+
+
+class EditMenuItem(View):
+    """View to Add Menu Items"""
+
+    def get(self, request, menu_item_id=None):
+
+        menu = get_menu_items()
+
+        content = MenuItem.objects.get(pk=menu_item_id)
+
+        form = AddMenuItemForm(initial={'title': content.title,
+                                        'content': content.content,
+                                        'parent': content.parent,
+                                        'override_url': content.override_url,
+                                        'priority': content.priority,
+                                        'published': content.published,
+                                        })
+
+        return render(request, "pages/content/admin/menu/menu_item_edit.html",{"form": form,
+                                                                             "menu" : menu,
+                                                                             "menu_item_id" : menu_item_id})
+
+    def post(self, request, menu_item_id=None):
+        form = AddMenuItemForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+
+            # process the data in form.cleaned_data as required
+            from django.db import models
+            try:
+                menu_item = MenuItem(pk=menu_item_id)
+            except Exception as e:
+                print(e)
+
+            menu_item.parent = form.cleaned_data['parent']
+            menu_item.content = form.cleaned_data['content']
+            menu_item.title = form.cleaned_data['title']
+            menu_item.override_url = form.cleaned_data['override_url']
+            menu_item.priority = form.cleaned_data['priority']
+            menu_item.published = form.cleaned_data['published']
+
+            menu_item.save()
+
+            return HttpResponseRedirect('/content/menu/admin/')
+
+
+class EditContent(View):
+    """View to Add Content"""
+
+    def get(self, request, content_id=None):
+
+        menu = get_menu_items()
+        content = ContentItem.objects.get(pk=content_id)
+        try:
+            published = PublishHistory.objects.filter(content_item=content_id).order_by('updated_at')
+            published = published[0].published
+        except:
+            published = False
+        try:
+            result = FeatureHistory.objects.filter(content_item__id=content_id).order_by('updated_at')
+            featured = result[0].featured
+            featured_image = result[0].image
+        except:
+            featured = False
+            featured_image = None
+
+        form = AddContentForm(initial={'title': content.title,
+                                        'description': content.description,
+                                        'body': content.body,
+                                        'author': content.author,
+                                        'category': content.category,
+                                        'tags': content.tags.all,
+                                        'layout': content.layout,
+                                        'content_type': content.content_type,
+                                        'published': published,
+                                        'featured': featured,
+                                        'header_image': content.header_image,
+                                        'thumbnail_image': content.thumbnail_image,
+                                        'featured_image': featured_image,})
+
+        return render(request, "pages/content/admin/edit_content.html",{"form": form,
+                                                                         "menu" : menu,
+                                                                         "content_id" : content_id})
+
+    def post(self, request, content_id=None):
+        form = AddContentForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            content, created = ContentItem.objects.get_or_create(id=content_id)
+
+            content.title = form.cleaned_data['title']
+            content.header_image = form.cleaned_data['header_image']
+            content.thumbnail_image = form.cleaned_data['thumbnail_image']
+            content.description = form.cleaned_data['description']
+            content.body = form.cleaned_data['body']
+            content.author = form.cleaned_data['author']
+            content.category = form.cleaned_data['category']
+            content.tags = form.cleaned_data['tags']
+            content.layout = form.cleaned_data['layout']
+            content.content_type = form.cleaned_data['content_type']
+            content.save()
+
+            published, created = PublishHistory.objects.get_or_create(content_item__id=content_id, defaults={'published': False, 'content_item_id':content_id})
+            published.published = form.cleaned_data['published']
+            published.save()
+
+            featured, created = FeatureHistory.objects.get_or_create(content_item__id=content_id, defaults={'featured': False, 'content_item_id':content_id})
+            featured.content_item = ContentItem.objects.get(pk=content_id)
+            featured.featured = form.cleaned_data['featured']
+            featured.image = form.cleaned_data['featured_image']
+            featured.save()
+
+            # redirect to a new URL:
+            return HttpResponseRedirect('/content/admin/')
+
+
+class DeleteContentItem(View):
+    """View to Add Content"""
+
+    def get(self, request, content_id=None):
+
+        menu = get_menu_items()
+        content = ContentItem.objects.get(pk=content_id)
+        content.delete()
+        return HttpResponseRedirect('/content/admin/')
+
+class DeleteMenuItem(View):
+    """View to Add Content"""
+
+    def get(self, request, menu_item_id=None):
+
+        menu = get_menu_items()
+        menu_item = MenuItem.objects.get(pk=menu_item_id)
+        menu_item.delete()
+        return HttpResponseRedirect('/content/menu/admin/')

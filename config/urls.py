@@ -19,6 +19,8 @@ urlpatterns = [
     url(r'^', include('content.urls', namespace='content')),
     url(r'^credits/$', TemplateView.as_view(template_name='pages/credits.html'), name='credits'),
 
+    url(r'^tinymce/', include('tinymce.urls')),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
