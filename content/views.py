@@ -5,6 +5,8 @@ from content.models import ContentItem, ContentTag, PublishHistory, FeatureHisto
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from content.view_utils import *
 from .forms import AddContentForm, AddMenuItemForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 
 class HomePage(View):
@@ -105,7 +107,7 @@ class ContentDisplayList(View):
 
 
 
-class ContentAdminHome(View):
+class ContentAdminHome(LoginRequiredMixin, View):
     """Content Administrator Home View"""
 
     def get(self, request, operation=None):
@@ -115,7 +117,7 @@ class ContentAdminHome(View):
         return render(request, "pages/content/admin/content_admin.html",{"menu": menu,
                                                                          "content" : content})
 
-class MenuAdminHome(View):
+class MenuAdminHome(LoginRequiredMixin, View):
     """Menu Administrator Home View"""
 
     def get(self, request, operation=None):
@@ -126,7 +128,7 @@ class MenuAdminHome(View):
                                                                          "content" : content})
 
 
-class AddMenuItem(View):
+class AddMenuItem(LoginRequiredMixin, View):
     """View to Add Menu Items"""
 
     def get(self, request, operation=None):
@@ -146,7 +148,7 @@ class AddMenuItem(View):
             return HttpResponseRedirect('/content/admin/')
 
 
-class AddContent(View):
+class AddContent(LoginRequiredMixin, View):
     """View to Add Content"""
 
     def get(self, request):
@@ -194,7 +196,7 @@ class AddContent(View):
             return HttpResponseRedirect('/content/admin/')
 
 
-class EditMenuItem(View):
+class EditMenuItem(LoginRequiredMixin, View):
     """View to Add Menu Items"""
 
     def get(self, request, menu_item_id=None):
@@ -239,7 +241,7 @@ class EditMenuItem(View):
             return HttpResponseRedirect('/content/menu/admin/')
 
 
-class EditContent(View):
+class EditContent(LoginRequiredMixin, View):
     """View to Add Content"""
 
     def get(self, request, content_id=None):
@@ -310,7 +312,7 @@ class EditContent(View):
             return HttpResponseRedirect('/content/admin/')
 
 
-class DeleteContentItem(View):
+class DeleteContentItem(LoginRequiredMixin, View):
     """View to Add Content"""
 
     def get(self, request, content_id=None):
@@ -320,7 +322,7 @@ class DeleteContentItem(View):
         content.delete()
         return HttpResponseRedirect('/content/admin/')
 
-class DeleteMenuItem(View):
+class DeleteMenuItem(LoginRequiredMixin, View):
     """View to Add Content"""
 
     def get(self, request, menu_item_id=None):
