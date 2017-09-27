@@ -43,6 +43,7 @@ Content Administraion
 ^^^^^^^^^^^^^^^^^^^^^
 * The content administration pages are restricted to anyone in the 'Editor' group. You will need to create this group through the Django Admin.
 
+
 Celery
 ^^^^^^
 
@@ -82,3 +83,12 @@ Docker
 See detailed `cookiecutter-django Docker documentation`_.
 
 .. _`cookiecutter-django Docker documentation`: http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html
+
+
+Quick Local Deployment
+^^^^^^^^^^^^^^^^^^^^^^
+
+* 1) Install Docker
+* 2) Clone this repo
+* 3) $ "docker-compose -f local.yml build"
+* 4) $ "docker-compose -f local.yml up"
