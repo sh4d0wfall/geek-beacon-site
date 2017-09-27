@@ -1,12 +1,16 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User, Group
 from content.models import ContentItem, ContentTag, PublishHistory, FeatureHistory
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from content.view_utils import *
 from .forms import AddContentForm, AddMenuItemForm
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.decorators import user_passes_test
 
+def is_editor(request):
+    return self.user.groups.filter(name__in=['onetime','monthtime']).exists()
 
 
 class HomePage(View):
@@ -107,8 +111,11 @@ class ContentDisplayList(View):
 
 
 
-class ContentAdminHome(LoginRequiredMixin, View):
+class ContentAdminHome(UserPassesTestMixin, LoginRequiredMixin, View):
     """Content Administrator Home View"""
+
+    def test_func(self):
+        return self.request.user.groups.filter(name__in=['Editor',])
 
     def get(self, request, operation=None):
 
@@ -117,8 +124,11 @@ class ContentAdminHome(LoginRequiredMixin, View):
         return render(request, "pages/content/admin/content_admin.html",{"menu": menu,
                                                                          "content" : content})
 
-class MenuAdminHome(LoginRequiredMixin, View):
+class MenuAdminHome(UserPassesTestMixin, LoginRequiredMixin, View):
     """Menu Administrator Home View"""
+
+    def test_func(self):
+        return self.request.user.groups.filter(name__in=['Editor',])
 
     def get(self, request, operation=None):
 
@@ -128,8 +138,11 @@ class MenuAdminHome(LoginRequiredMixin, View):
                                                                          "content" : content})
 
 
-class AddMenuItem(LoginRequiredMixin, View):
+class AddMenuItem(UserPassesTestMixin, LoginRequiredMixin, View):
     """View to Add Menu Items"""
+
+    def test_func(self):
+        return self.request.user.groups.filter(name__in=['Editor',])
 
     def get(self, request, operation=None):
 
@@ -148,8 +161,11 @@ class AddMenuItem(LoginRequiredMixin, View):
             return HttpResponseRedirect('/content/admin/')
 
 
-class AddContent(LoginRequiredMixin, View):
+class AddContent(UserPassesTestMixin, LoginRequiredMixin, View):
     """View to Add Content"""
+
+    def test_func(self):
+        return self.request.user.groups.filter(name__in=['Editor',])
 
     def get(self, request):
 
@@ -196,8 +212,11 @@ class AddContent(LoginRequiredMixin, View):
             return HttpResponseRedirect('/content/admin/')
 
 
-class EditMenuItem(LoginRequiredMixin, View):
+class EditMenuItem(UserPassesTestMixin, LoginRequiredMixin, View):
     """View to Add Menu Items"""
+
+    def test_func(self):
+        return self.request.user.groups.filter(name__in=['Editor',])
 
     def get(self, request, menu_item_id=None):
 
@@ -241,8 +260,11 @@ class EditMenuItem(LoginRequiredMixin, View):
             return HttpResponseRedirect('/content/menu/admin/')
 
 
-class EditContent(LoginRequiredMixin, View):
+class EditContent(UserPassesTestMixin, LoginRequiredMixin, View):
     """View to Add Content"""
+
+    def test_func(self):
+        return self.request.user.groups.filter(name__in=['Editor',])
 
     def get(self, request, content_id=None):
 
@@ -312,8 +334,11 @@ class EditContent(LoginRequiredMixin, View):
             return HttpResponseRedirect('/content/admin/')
 
 
-class DeleteContentItem(LoginRequiredMixin, View):
+class DeleteContentItem(UserPassesTestMixin, LoginRequiredMixin, View):
     """View to Add Content"""
+
+    def test_func(self):
+        return self.request.user.groups.filter(name__in=['Editor',])
 
     def get(self, request, content_id=None):
 
@@ -322,8 +347,11 @@ class DeleteContentItem(LoginRequiredMixin, View):
         content.delete()
         return HttpResponseRedirect('/content/admin/')
 
-class DeleteMenuItem(LoginRequiredMixin, View):
+class DeleteMenuItem(UserPassesTestMixin, LoginRequiredMixin, View):
     """View to Add Content"""
+
+    def test_func(self):
+        return self.request.user.groups.filter(name__in=['Editor',])
 
     def get(self, request, menu_item_id=None):
 
