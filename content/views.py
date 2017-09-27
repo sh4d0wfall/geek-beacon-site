@@ -156,9 +156,19 @@ class AddMenuItem(UserPassesTestMixin, LoginRequiredMixin, View):
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
-            print(form.cleaned_data)
-            # redirect to a new URL:
-            return HttpResponseRedirect('/content/admin/')
+            menu_item = MenuItem()
+
+            menu_item.parent = form.cleaned_data['parent']
+            menu_item.content = form.cleaned_data['content']
+            menu_item.title = form.cleaned_data['title']
+            menu_item.override_url = form.cleaned_data['override_url']
+            menu_item.priority = form.cleaned_data['priority']
+            menu_item.published = form.cleaned_data['published']
+
+            menu_item.save()
+
+
+            return HttpResponseRedirect('/content/menu/admin/')
 
 
 class AddContent(UserPassesTestMixin, LoginRequiredMixin, View):
@@ -242,7 +252,6 @@ class EditMenuItem(UserPassesTestMixin, LoginRequiredMixin, View):
         if form.is_valid():
 
             # process the data in form.cleaned_data as required
-            from django.db import models
             try:
                 menu_item = MenuItem(pk=menu_item_id)
             except Exception as e:
