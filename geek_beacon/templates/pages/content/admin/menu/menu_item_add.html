@@ -24,7 +24,7 @@
         <!-- Forms -->
         <!-- ============================================================================== -->
         <br>
-        <form action="/content/admin/" method="post">
+        <form action="/content/menu/add" method="post">
             {% csrf_token %}
             {% for hidden in form.hidden_fields %}
               {{ hidden }}
