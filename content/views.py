@@ -11,10 +11,6 @@ from django.contrib.auth.decorators import user_passes_test
 from django.db import models # not sure if I need this line
 
 
-def is_editor(request):
-    return self.user.groups.filter(name__in=['onetime','monthtime']).exists()
-
-
 class HomePage(View):
     """Home page view"""
 
