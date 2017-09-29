@@ -8,9 +8,7 @@ from content.view_utils import *
 from .forms import AddContentForm, AddMenuItemForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import user_passes_test
-
-def is_editor(request):
-    return self.user.groups.filter(name__in=['onetime','monthtime']).exists()
+from django.db import models # not sure if I need this line
 
 
 class HomePage(View):
@@ -152,7 +150,7 @@ class AddMenuItem(UserPassesTestMixin, LoginRequiredMixin, View):
                                                                          "menu" : menu})
 
     def post(self, request, operation=None):
-        form = AddMenuItemForm(request.POST)
+        form = AddMenuItemForm(request.POST, request.FILES)
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
@@ -185,16 +183,11 @@ class AddContent(UserPassesTestMixin, LoginRequiredMixin, View):
                                                                          "menu" : menu})
 
     def post(self, request):
-        form = AddContentForm(request.POST)
+        form = AddContentForm(request.POST, request.FILES)
         # check whether it's valid:
         if form.is_valid():
+            content = ContentItem()
 
-            # process the data in form.cleaned_data as required
-            from django.db import models
-            try:
-                content = ContentItem()
-            except Exception as e:
-                print(e)
             content.title = form.cleaned_data['title']
             content.author = form.cleaned_data['author']
             content.header_image = form.cleaned_data['header_image']
@@ -247,7 +240,7 @@ class EditMenuItem(UserPassesTestMixin, LoginRequiredMixin, View):
                                                                              "menu_item_id" : menu_item_id})
 
     def post(self, request, menu_item_id=None):
-        form = AddMenuItemForm(request.POST)
+        form = AddMenuItemForm(request.POST, request.FILES)
         # check whether it's valid:
         if form.is_valid():
 
@@ -311,7 +304,7 @@ class EditContent(UserPassesTestMixin, LoginRequiredMixin, View):
                                                                          "content_id" : content_id})
 
     def post(self, request, content_id=None):
-        form = AddContentForm(request.POST)
+        form = AddContentForm(request.POST, request.FILES)
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
