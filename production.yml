@@ -1,11 +1,8 @@
 version: '2'
 
-volumes:
-  postgres_data: {}
-  postgres_backup: {}
-
 services:
   django: &django
+    image: geekbeacon/django
     build:
       context: .
       dockerfile: ./compose/production/django/Dockerfile
@@ -15,12 +12,13 @@ services:
     command: /gunicorn.sh
 
   postgres:
+    image: geekbeacon/postgres
     build:
       context: .
       dockerfile: ./compose/production/postgres/Dockerfile
     volumes:
-      - postgres_data:/var/lib/postgresql/data
-      - postgres_backup:/backups
+      - ./volumes/postgres_data:/var/lib/postgresql/data
+      - ./volumes/postgres_backup:/backups
     env_file: .env
 
   www:
