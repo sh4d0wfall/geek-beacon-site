@@ -2,6 +2,9 @@ FROM python:3.5
 
 ENV PYTHONUNBUFFERED 1
 
+RUN groupadd -r django \
+    && useradd -r -g django django
+
 # Requirements have to be pulled and installed here, otherwise caching won't work
 COPY ./requirements /requirements
 RUN pip install -r /requirements/local.txt
@@ -21,6 +24,9 @@ RUN chmod +x /start-celeryworker.sh
 COPY ./compose/local/django/celery/beat/start.sh /start-celerybeat.sh
 RUN sed -i 's/\r//' /start-celerybeat.sh
 RUN chmod +x /start-celerybeat.sh
+
+
+USER django
 
 WORKDIR /app
 

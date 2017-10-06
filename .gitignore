@@ -311,3 +311,4 @@ geek_beacon/media/
 
 .idea
 docker-compose.yml
+volumes
