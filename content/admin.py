@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import * 
+from content.models.content_model import *
+from content.models.menu_model import MenuItem
 
 admin.site.register(ContentItem)
 admin.site.register(ContentTag)

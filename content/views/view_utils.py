@@ -1,4 +1,6 @@
-from content.models import MenuItem, ContentItem, ContentTag, FeatureHistory
+from content.models.menu_model import MenuItem
+from content.models.content_model import ContentItem, FeatureHistory
+
 
 def get_menu_items():
     """Query the database for the current menu items and organize them"""
@@ -13,12 +15,13 @@ def get_menu_items():
     # Then do the same for those sub-menu items and put it all into a big dict
     # This gives us a main menu with a 2 level deep sub-menu
     for parent in menu['main']:
-        menu[parent.title] = MenuItem.objects.filter(published=True).filter(parent__title__exact=parent.title).order_by('priority')
+        menu[parent.title] = MenuItem.objects.filter(published=True).filter(parent__title__exact=parent.title).order_by(
+            'priority')
         for subitem in menu[parent.title]:
-            menu[subitem] = MenuItem.objects.filter(published=True).filter(parent__title__exact=subitem).order_by('priority')
+            menu[subitem] = MenuItem.objects.filter(published=True).filter(parent__title__exact=subitem).order_by(
+                'priority')
 
     return menu
-
 
 
 def get_latest_content():
@@ -44,6 +47,6 @@ def layout_selector(layout):
     """Return the HTML file path for the layout supplied"""
 
     # This dictionary could probably be moved, not sure where to, just saying.
-    PAGE_LAYOUTS = {'sidebar' : 'pages/content/content_post.html',}
+    PAGE_LAYOUTS = {'sidebar': 'pages/content/content_post.html', }
 
     return PAGE_LAYOUTS[layout]
