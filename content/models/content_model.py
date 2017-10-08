@@ -1,27 +1,7 @@
-from __future__ import unicode_literals
-from django.conf import settings
 from django.db import models
+
 from tinymce.models import HTMLField
 from geek_beacon.users.models import User
-
-
-class MenuItem(models.Model):
-    """Table to hold menu items"""
-
-    title = models.CharField(max_length=100)
-    parent = models.ForeignKey('self', blank=True, null=True)
-    content = models.ForeignKey('ContentItem', blank=True, null=True)
-    override_url = models.CharField(max_length=1000, blank=True, null=True)
-    priority = models.IntegerField()
-    published = models.BooleanField()
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        app_label = 'content'
-        db_table = 'content_menu_item'
-
 
 class ContentItem(models.Model):
     """Table to hold content items"""
@@ -105,6 +85,7 @@ class ContentLayout(models.Model):
     class Meta:
         app_label = 'content'
         db_table = 'content_layout'
+
 
 
 class PublishHistory(models.Model):

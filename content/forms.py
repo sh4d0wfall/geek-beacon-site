@@ -1,7 +1,9 @@
 from django import forms
 from django.contrib.flatpages.models import FlatPage
 from tinymce.widgets import TinyMCE
-from .models import *
+from content.models.menu_model import MenuItem
+from content.models.content_model import ContentCategory, ContentTag, ContentLayout, ContentType, ContentItem
+
 from geek_beacon.users.models import User
 
 class AddContentForm(forms.Form):
