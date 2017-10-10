@@ -26,7 +26,6 @@ services:
     build:
       context: .
       dockerfile: ./compose/production/nginx/Dockerfile
-    container_name: www_web
     ports:
       - "8000:80"
     volumes:

@@ -4,6 +4,9 @@ from content.views import content_view, menu_view, home_page_view, content_displ
 
 urlpatterns = [
     url(r'^$', home_page_view.HomePage.as_view(), name='home'),
+    url(r'^credits/$', home_page_view.Credits.as_view(), name='credits'),
+
+
     url(r'^all/$', content_display_view.ContentDisplayList.as_view()),
     url(r'^tag/(?P<tag>.+)$', content_display_view.ContentDisplayList.as_view()),
     url(r'^display/(?P<content_id>.+)/$', content_display_view.ContentDisplay.as_view()),
