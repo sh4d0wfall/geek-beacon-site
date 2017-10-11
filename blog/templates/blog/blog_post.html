@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block body_class %}template-blogpage{% endblock %}
+
+{% block content %}
+    <h1>{{ page.title }}</h1>
+    {% if page.subtitle %}
+        <h2 class="intro">{{ page.subtitle }}</h2>
+    {% endif %}
+    <p class="meta">{{ page.date }}</p>
+
+    {{ page.body|richtext }}
+
+    <p><a href="{{ page.get_parent.url }}">Return to Index</a></p>
+
+{% endblock %}

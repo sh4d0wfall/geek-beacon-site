@@ -1,0 +1,207 @@
+{% load static %}
+<!-- header-container start -->
+<div class="header-container">
+    <!-- header-top start -->
+    <!-- classes:  -->
+    <!-- "dark": dark version of header top e.g. class="header-top dark" -->
+    <!-- "colored": colored version of header top e.g. class="header-top colored" -->
+    <!-- ================ -->
+    <div class="header-top dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-2 col-md-5">
+                    <!-- header-top-first start -->
+                    <!-- ================ -->
+                    <div class="header-top-first clearfix">
+                        <ul class="social-links circle small clearfix hidden-sm-down">
+                            <li class="twitter"><a target="_blank" href="https://twitter.com/geekbeacon"><i
+                                    class="fa fa-twitter"></i></a></li>
+                            <li class="googleplus"><a target="_blank"
+                                                      href="https://plus.google.com/105757657825136636518"><i
+                                    class="fa fa-google-plus"></i></a></li>
+                            <li class="youtube"><a target="_blank"
+                                                   href="https://www.youtube.com/channel/UC8OOBdn0YNSUszZV98a3CLA"><i
+                                    class="fa fa-youtube-play"></i></a></li>
+                            <li class="twitch"><a target="_blank"
+                                                  href="https://www.twitch.tv/communities/geekbeacon"><i
+                                    class="fa fa-twitch"></i></a></li>
+                            <li class="facebook"><a target="_blank" href="https://www.facebook.com/GeekBeacon.org/"><i
+                                    class="fa fa-facebook"></i></a></li>
+                            <li class="github"><a target="_blank" href="https://github.com/OSAlt"><i
+                                    class="fa fa-github"></i></a></li>
+                            <!--<li class="pinterest"><a target="_blank" href="https://www.pinterest.com"><i class="fa fa-pinterest"></i></a></li>
+                            <li class="flickr"><a target="_blank" href="https://www.flickr.com"><i class="fa fa-flickr"></i></a></li>-->
+                        </ul>
+                        <div class="social-links hidden-md-up circle small">
+                            <div class="btn-group dropdown">
+                                <button id="header-top-drop-1" type="button"
+                                        class="btn dropdown-toggle dropdown-toggle--no-caret" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false"><i class="fa fa-share-alt"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-animation" aria-labelledby="header-top-drop-1">
+                                    <li class="twitter"><a target="_blank" href="https://twitter.com/geekbeacon"><i
+                                            class="fa fa-twitter"></i></a></li>
+                                    <li class="googleplus"><a target="_blank"
+                                                              href="https://plus.google.com/105757657825136636518"><i
+                                            class="fa fa-google-plus"></i></a></li>
+                                    <li class="youtube"><a target="_blank"
+                                                           href="https://www.youtube.com/channel/UC8OOBdn0YNSUszZV98a3CLA"><i
+                                            class="fa fa-youtube-play"></i></a></li>
+                                    <li class="twitch"><a target="_blank"
+                                                          href="https://www.twitch.tv/communities/geekbeacon"><i
+                                            class="fa fa-twitch"></i></a></li>
+                                    <li class="facebook"><a target="_blank"
+                                                            href="https://www.facebook.com/GeekBeacon.org/"><i
+                                            class="fa fa-facebook"></i></a></li>
+                                    <li class="github"><a target="_blank" href="https://github.com/OSAlt"><i
+                                            class="fa fa-github"></i></a></li>
+                                    <!-- <li class="flickr"><a target="_blank" href="https://www.flickr.com"><i class="fa fa-flickr"></i></a></li>
+                                    <li class="pinterest"><a target="_blank" href="https://www.pinterest.com"><i class="fa fa-pinterest"></i></a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- header-top-first end -->
+                </div>
+                <div class="col-10 col-md-7">
+
+                    <!-- header-top-second start -->
+                    <!-- ================ -->
+                    <div id="header-top-second" class="clearfix text-right">
+                        <div class="btn-group">
+                            <a href="/accounts/login/" class="btn btn-default btn-sm"><i
+                                    class="fa fa-lock pr-2"></i> Log In</a>
+                        </div>
+                        <!--<div class="btn-group">
+                            <a href="/accounts/signup/" class="btn btn-default btn-sm"><i class="fa fa-user pr-2"></i> Sign Up</a>
+                        </div>-->
+                    </div>
+                    <!-- header-top-second end -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- header-top end -->
+
+    <!-- header start -->
+    <!-- classes:  -->
+    <!-- "fixed": enables fixed navigation mode (sticky menu) e.g. class="header fixed clearfix" -->
+    <!-- "fixed-desktop": enables fixed navigation only for desktop devices e.g. class="header fixed fixed-desktop clearfix" -->
+    <!-- "fixed-all": enables fixed navigation only for all devices desktop and mobile e.g. class="header fixed fixed-desktop clearfix" -->
+    <!-- "dark": dark version of header e.g. class="header dark clearfix" -->
+    <!-- "centered": mandatory class for the centered logo layout -->
+    <!-- ================ -->
+    <header class="header fixed fixed-desktop clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-auto hidden-md-down pl-3">
+                    <!-- header-first start -->
+                    <!-- ================ -->
+                    <div class="header-first clearfix">
+
+                        <!-- logo -->
+                        <div id="logo" class="logo">
+                            <a href="/"><img id="logo_img" src="{% static 'images/mini_gb.png' %}"
+                                             style="padding-top:10px;" alt="Geek Beacon"></a>
+                        </div>
+
+
+                    </div>
+                    <!-- header-first end -->
+
+                </div>
+                <div class="col-lg-8 col-xl-9">
+
+                    <!-- header-second start -->
+                    <!-- ================ -->
+                    <div class="header-second clearfix">
+
+                        <!-- main-navigation start -->
+                        <!-- classes: -->
+                        <!-- "onclick": Makes the dropdowns open on click, this the default bootstrap behavior e.g. class="main-navigation onclick" -->
+                        <!-- "animated": Enables animations on dropdowns opening e.g. class="main-navigation animated" -->
+                        <!-- ================ -->
+                        <div class="main-navigation  animated">
+                            <nav class="navbar navbar-toggleable-md navbar-light p-0">
+
+                                <button class="navbar-toggler navbar-toggler-right" type="button"
+                                        data-toggle="collapse" data-target="#navbar-collapse-1"
+                                        aria-controls="navbar-collapse-1" aria-expanded="false"
+                                        aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="navbar-brand clearfix hidden-lg-up">
+
+                                    <!-- logo -->
+                                    <div id="logo-mobile" class="logo">
+                                        <a href="index.html"><img id="logo-img-mobile"
+                                                                  src="{% static 'images/mini_gb.png' %}"
+                                                                  alt="Geel Beacon"></a>
+                                    </div>
+
+                                </div>
+
+                                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                                    <!-- main-menu -->
+                                    <ul class="navbar-nav ml-xl-auto">
+                                            <li class="nav-item dropdown ">
+                                                <a href="#" class="nav-link dropdown-toggle"
+                                                   id="#" aria-haspopup="true"
+                                                   aria-expanded="false">Menu 1</a>
+                                                    <ul class="dropdown-menu"
+                                                        aria-labelledby="#-dropdown">
+                                                            <li class="dropdown ">
+                                                                <a class="#" href="">Submenu 1</a>
+                                                                    <ul class="dropdown-menu">
+                                                                            <li><a href="#">Sub Submenu 1</a></li>
+                                                                    </ul>
+                                                            </li>
+                                                    </ul>
+                                            </li>
+                                    </ul>
+                                    <!-- main-menu end -->
+                                </div>
+
+                            </nav>
+                        </div>
+                        <!-- main-navigation end -->
+                    </div>
+                    <!-- header-second end -->
+
+                </div>
+{#                    <div class="d-flex flex-row">#}
+                <div class="col-auto ml-auto pr-3 hidden-md-down">
+                    <!-- header dropdown buttons -->
+                    <div class="header-dropdown-buttons">
+                       <a href="https://discord.gg/geekbeacon" class="btn btn-sm radius-50 btn-default"
+                           style="margin:0; background-color: #352C5C; border-color: #352C5C;"> <img
+                                src="{% static 'images/logos/Discord-Logo-White.png' %}" / width="70" /></a>
+                    </div>
+
+                    <!-- header dropdown buttons end-->
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header end -->
+</div>
+<!-- header-container end -->
+<!-- banner start -->
+<!-- ================ -->
+<div class="banner dark-translucent-bg"
+     style="background-image:url('{% static 'images/background_improved.png' %}'); background-position: 50%;">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 text-center offset-lg-2 pv-20">
+                <h2 class="title object-non-visible" data-animation-effect="fadeIn" data-effect-delay="100">Geek
+                    <strong>Beacon</strong></h2>
+                <div class="separator object-non-visible mt-10" data-animation-effect="fadeIn"
+                     data-effect-delay="100"></div>
+                <p class="text-center object-non-visible" data-animation-effect="fadeIn" data-effect-delay="100">
+                    Your Guiding Light To All Things Geek</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- banner end -->

@@ -1,0 +1,154 @@
+{% load static %}
+<footer id="footer" class="clearfix dark">
+    <!-- .footer start -->
+    <!-- ================ -->
+    <div class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="footer-content">
+                            <h2 class="title">Geeks Abroad</h2>
+                            <div class="separator-2"></div>
+
+                            {% for item in latest_content.ga %}
+                                <div class="media margin-clear">
+                                    <div class="d-flex pr-2">
+                                        <div class="overlay-container">
+                                            <img class="media-object" src="{{ MEDIA_URL }}{{ item.thumbnail_image }}"
+                                                 alt="blog-thumb">
+                                            <a href="/display/{{ post.id }}" class="overlay-link small"><i
+                                                    class="fa fa-link"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="media-heading"><a href="/display/{{ item.id }}">{{ item.title }}</a>
+                                        </h6>
+                                        <p class="small margin-clear"><i
+                                                class="fa fa-calendar pr-2"></i>{{ item.updated_at }}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                            {% empty %}No Recent Posts For This Tag!{% endfor %}
+
+                            {#                    <div class="text-right space-top">#}
+                            {#                      <a href="blog-large-image-right-sidebar.html" class="link-dark"><i class="fa fa-plus-circle pl-1 pr-1"></i>More</a>#}
+                            {#                    </div>#}
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="footer-content">
+                            <h2 class="title">Gaming</h2>
+                            <div class="separator-2"></div>
+
+                            {% for item in latest_content.gaming %}
+                                <div class="media margin-clear">
+                                    <div class="d-flex pr-2">
+                                        <div class="overlay-container">
+                                            <img class="media-object" src="{{ MEDIA_URL }}{{ item.thumbnail_image }}"
+                                                 alt="blog-thumb">
+                                            <a href="/display/{{ post.id }}" class="overlay-link small"><i
+                                                    class="fa fa-link"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="media-heading"><a href="/display/{{ item.id }}">{{ item.title }}</a>
+                                        </h6>
+                                        <p class="small margin-clear"><i class="fa fa-calendar pr-2"></i>Mar 23, 2017
+                                        </p>
+                                    </div>
+                                </div>
+                                <hr>
+                            {% empty %}No Recent Posts For This Tag!{% endfor %}
+
+                            {#                    <div class="text-right space-top">#}
+                            {#                      <a href="blog-large-image-right-sidebar.html" class="link-dark"><i class="fa fa-plus-circle pl-1 pr-1"></i>More</a>#}
+                            {#                    </div>#}
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="footer-content">
+                            <h2 class="title">OS.Alt</h2>
+                            <div class="separator-2"></div>
+
+                            {% for item in latest_content.osalt %}
+                                <div class="media margin-clear">
+                                    <div class="d-flex pr-2">
+                                        <div class="overlay-container">
+                                            <img class="media-object" src="{{ MEDIA_URL }}{{ item.thumbnail_image }}"
+                                                 alt="blog-thumb">
+                                            <a href="/display/{{ post.id }}" class="overlay-link small"><i
+                                                    class="fa fa-link"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="media-heading"><a href="/display/{{ item.id }}">{{ item.title }}</a>
+                                        </h6>
+                                        <p class="small margin-clear"><i class="fa fa-calendar pr-2"></i>Mar 23, 2017
+                                        </p>
+                                    </div>
+                                </div>
+                                <hr>
+                            {% empty %}No Recent Posts For This Tag!{% endfor %}
+
+                            {#                    <div class="text-right space-top">#}
+                            {#                      <a href="blog-large-image-right-sidebar.html" class="link-dark"><i class="fa fa-plus-circle pl-1 pr-1"></i>More</a>#}
+                            {#                    </div>#}
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="footer-content">
+                            <h2 class="title">Squirrel Army</h2>
+                            <div class="separator-2"></div>
+
+                            {% for item in latest_content.sa %}
+                                <div class="media margin-clear">
+                                    <div class="d-flex pr-2">
+                                        <div class="overlay-container">
+                                            <img class="media-object" src="{{ MEDIA_URL }}{{ item.thumbnail_image }}"
+                                                 alt="blog-thumb">
+                                            <a href="/display/{{ post.id }}" class="overlay-link small"><i
+                                                    class="fa fa-link"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="media-heading"><a href="/display/{{ item.id }}">{{ item.title }}</a>
+                                        </h6>
+                                        <p class="small margin-clear"><i class="fa fa-calendar pr-2"></i>Mar 23, 2017
+                                        </p>
+                                    </div>
+                                </div>
+                                <hr>
+                            {% empty %}No Recent Posts For This Tag!{% endfor %}
+
+                            {#                    <div class="text-right space-top">#}
+                            {#                      <a href="blog-large-image-right-sidebar.html" class="link-dark"><i class="fa fa-plus-circle pl-1 pr-1"></i>More</a>#}
+                            {#                    </div>#}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- .footer end -->
+
+    <!-- .subfooter start -->
+    <!-- ================ -->
+    <div class="subfooter">
+        <div class="container">
+            <div class="subfooter-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="text-center">Geek Beacon </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- .subfooter end -->
+
+</footer>
+<!-- footer end -->
