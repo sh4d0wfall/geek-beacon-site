@@ -1,4 +1,4 @@
-{% load static %}
+{% load static custom_tags %}
 <!-- header-container start -->
 <div class="header-container">
     <!-- header-top start -->
@@ -143,22 +143,10 @@
 
                                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                                     <!-- main-menu -->
-                                    <ul class="navbar-nav ml-xl-auto">
-                                            <li class="nav-item dropdown ">
-                                                <a href="#" class="nav-link dropdown-toggle"
-                                                   id="#" aria-haspopup="true"
-                                                   aria-expanded="false">Menu 1</a>
-                                                    <ul class="dropdown-menu"
-                                                        aria-labelledby="#-dropdown">
-                                                            <li class="dropdown ">
-                                                                <a class="#" href="">Submenu 1</a>
-                                                                    <ul class="dropdown-menu">
-                                                                            <li><a href="#">Sub Submenu 1</a></li>
-                                                                    </ul>
-                                                            </li>
-                                                    </ul>
-                                            </li>
-                                    </ul>
+                                    {% block menu %}
+                                        {% get_site_root as site_root %}
+                                        {% top_menu parent=site_root calling_page=self %}
+                                    {% endblock %}
                                     <!-- main-menu end -->
                                 </div>
 

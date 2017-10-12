@@ -1,0 +1,13 @@
+{% load static wagtailcore_tags custom_tags %}
+<ul class="navbar-nav ml-xl-auto">
+    {% for menuitem in menuitems %}
+        <li class="{% if menuitem.show_dropdown %}dropdown{% endif %}{% if calling_page.url == menuitem.url %} active{% endif %}">
+            {% if menuitem.show_dropdown %}
+                <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">{{ menuitem.title }} <b class="caret"></b></a>
+                {% top_menu_children parent=menuitem %}
+            {% else %}
+                <a class="nav-link" aria-haspopup="false" aria-expanded="false" href="{% pageurl menuitem %}">{{ menuitem.title }}</a>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

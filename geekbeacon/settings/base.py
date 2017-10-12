@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'home',
     'search',
     'blog',
+    'geekbeacon',
 
     'wagtail.wagtailforms',
     'wagtail.wagtailredirects',
