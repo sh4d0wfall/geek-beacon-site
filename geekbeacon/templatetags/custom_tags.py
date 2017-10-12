@@ -1,5 +1,7 @@
 from django import template
 
+from blog.models import BlogCategory, BlogPost
+
 register = template.Library()
 
 
@@ -27,7 +29,6 @@ def top_menu(context, parent, calling_page=None):
         # if the variable passed as calling_page does not exist.
         menuitem.active = (calling_page.path.startswith(menuitem.path)
                            if calling_page else False)
-        print(menuitem)
 
     return {
         'calling_page': calling_page,
@@ -47,4 +48,18 @@ def top_menu_children(context, parent):
         'menuitems_children': menuitems_children,
         # required by the pageurl tag that we want to use within this template
         'request': context['request'],
+    }
+
+@register.inclusion_tag('tags/category_footer.html', takes_context=True)
+def category_footer(context, category):
+    try:
+        cat = BlogCategory.objects.get(slug=category)
+        posts = BlogPost.objects.filter(categories=cat.id).live().order_by('-date')[:5]
+    except BlogCategory.DoesNotExist:
+        cat = None
+        posts = None
+
+    return {
+        'category': cat,
+        'posts': posts
     }

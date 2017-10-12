@@ -1,0 +1,23 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<h2 class="title">{{ category.name }}</h2>
+<div class="separator-2"></div>
+
+{% for post in posts %}
+    <div class="media margin-clear">
+        <div class="d-flex pr-2">
+            <div class="overlay-container">
+                {% image post.header_image width-60 %}
+                <a href="{% pageurl post %}" class="overlay-link small"><i
+                        class="fa fa-link"></i></a>
+            </div>
+        </div>
+        <div class="media-body">
+            <h6 class="media-heading"><a href="{% pageurl post %}">{{ post.title }}</a>
+            </h6>
+            <p class="small margin-clear"><i class="fa fa-calendar pr-2"></i>{{ post.date|date:"M d, Y"}}
+            </p>
+        </div>
+    </div>
+    <hr>
+    {% empty %}No Recent Posts For This Tag!{% endfor %}
