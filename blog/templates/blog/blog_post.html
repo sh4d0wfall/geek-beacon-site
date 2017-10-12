@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
 {% block body_class %}single-content{% endblock %}
 
 {% block content %}
     <h1>{{ page.title }}</h1>
+    {% image page.header_image fill-160x100 %}
     {% if page.subtitle %}
         <h2 class="intro">{{ page.subtitle }}</h2>
     {% endif %}
