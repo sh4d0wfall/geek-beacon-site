@@ -65,6 +65,19 @@ Now you can start adding pages, blog index pages and blog posts.
 Categories are hidden in the Snippets menu.
 
 
+### Upgrades and migrations
+
+Upon deploying the new code it will sometimes become necessary to perform
+database migrations, like so:
+
+```
+$ cd ~/where/your/project/lives
+$ source ~/.venv/geekbeacon/bin/activate 
+$ python manage migrate
+```
+And that's basically it.
+
+
 ### Setting up stuff
 #### Footer section
 
