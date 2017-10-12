@@ -1,11 +1,10 @@
-Geek Beacon
-===========
+## Geek Beacon
+
 
 Website, built on wagtail
 
 
-Setting up development environment
-==================================
+### Setting up development environment
 
 Choose a Linux distribution you prefer. Make sure that:
 
@@ -66,12 +65,28 @@ Now you can start adding pages, blog index pages and blog posts.
 Categories are hidden in the Snippets menu.
 
 
-TODO
-====
+### Setting up stuff
+#### Footer section
 
-- automatically generated menus based on 'Show in menu' checkbox for specific page.
-- make front page more dynamic
-- style blog index and blog posts
+Right now there are 4 categories hardcoded in the `footer.html` template:
+
+- geeks-abroad
+- gaming
+- osalt
+- squirrel-army
+
+This means that these categories have to exist and their _slugs_, have
+to be the same as on this list. If they are not, then posts in those
+categories won't be shown in the footer.  
+
+#### TBD
+
+Etc, etc, &hellip;
+
+
+### TODO
+
+- make front page more dynamic, currently in progress
 - ...
 - profit
 
