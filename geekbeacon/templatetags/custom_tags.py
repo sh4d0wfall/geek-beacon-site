@@ -54,7 +54,7 @@ def top_menu_children(context, parent):
 def category_footer(context, category):
     try:
         cat = BlogCategory.objects.get(slug=category)
-        posts = BlogPost.objects.filter(categories=cat.id).order_by('-date')[:5]
+        posts = BlogPost.objects.filter(categories=cat.id).live().order_by('-date')[:5]
     except BlogCategory.DoesNotExist:
         cat = None
         posts = None
