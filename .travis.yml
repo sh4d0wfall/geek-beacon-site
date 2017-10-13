@@ -1,0 +1,9 @@
+sudo: true
+install:
+  - pip install -r requirements/base.txt
+  - pip install -r requirements/test.txt
+language: python
+python:
+  - "3.6"
+script:
+  - pytest # or py.test for Python versions 3.5 and below
