@@ -97,9 +97,38 @@ categories won't be shown in the footer.
 Etc, etc, &hellip;
 
 
+### Deployment in production
+
+Right now we're in early stages, so I would rather not over-engineer things too much.
+Install Nginx, PostgresSQL, gunicorn and supervisord. In the deploy directory are config templates
+for Nginx, supervisord and Django/wagtail and a sample credentials file.
+
+Pre-deployment checks:
+
+ - create a geek beacon dedicated user
+ - create `/home/user/credentials/geekbeacon_settings.py` theres's an example file in deploy directory
+
+When deploying these steps should be perfomed:
+
+ - switch to the geek beacon dedicated user
+ - go to the base directory where you want everything installed, I used `/srv` in all the examples
+ - git clone/pull the latest sources, either master or select by tag, whatever
+ - run deploy.py script
+ - start python virtual env, usually by `source /srv/.venv/bin/activate`
+ - install all the requirements `pip install --no-cache-dir -r requirements.txt`
+ - perform django database migrations `python manage.py migrate`
+ - collect django static files `python manage.py collectstatic --clear --no-input`
+ - tell supervisord to restart gunicorn processes `supervisorctl signal HUP all`
+   - if sueprvisord is taking care of other stuff, not just gunicorn, then 'all' parameter might not be a good idea
+   
+**Make sure to check and double check those scripts. They are not tested, they were taken from some production server
+and hacked a bit for geekbeacon. You'll probably have to fix them.**
+
+
+
 ### TODO
 
 - make front page more dynamic, currently in progress
+- --write some-- improve deployment docs
 - ...
 - profit
-
