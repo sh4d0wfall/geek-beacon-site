@@ -38,7 +38,7 @@ $ git clone git@github.com:OSAlt/geek-beacon-site.git .
 Now all you have to do is to install the requirements and create superuser:
 
 ```
-$ pip instal -r requirements.txt
+$ pip instal -r requirements/base.txt
 $ pyhton manage.py migrate
 $ python manage.py createsuperuser
 ```

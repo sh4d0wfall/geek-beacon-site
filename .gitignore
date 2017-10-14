@@ -2,3 +2,7 @@ __pycache__
 db.sqlite3
 .idea
 /media/
+*.pyc
+docker-compose.yml
+.env
+volumes
