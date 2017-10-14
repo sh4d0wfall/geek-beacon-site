@@ -35,3 +35,14 @@ class SinglePage(Page):
         FieldPanel('body', classname="full"),
         ImageChooserPanel('header_image'),
     ]
+
+
+class MenuItem(Page):
+    external_link = models.URLField(blank=True)
+    menu_icon = models.ForeignKey('wagtailimages.Image',
+                                  on_delete=models.SET_NULL, related_name='+', blank=True, null=True,)
+
+    content_panels = Page.content_panels + [
+        FieldPanel('external_link'),
+        ImageChooserPanel('menu_icon'),
+    ]
