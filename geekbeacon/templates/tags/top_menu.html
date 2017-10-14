@@ -1,4 +1,4 @@
-{% load static wagtailcore_tags custom_tags %}
+{% load static wagtailcore_tags custom_tags wagtailimages_tags %}
 <ul class="navbar-nav ml-xl-auto">
     {% for menuitem in menuitems %}
         <li class="{% if menuitem.show_dropdown %}dropdown{% endif %}{% if calling_page.url == menuitem.url %} active{% endif %}">
@@ -6,7 +6,8 @@
                 <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">{{ menuitem.title }} <b class="caret"></b></a>
                 {% top_menu_children parent=menuitem %}
             {% else %}
-                <a class="nav-link" aria-haspopup="false" aria-expanded="false" href="{% pageurl menuitem %}">{{ menuitem.title }}</a>
+                <a class="nav-link" aria-haspopup="false" aria-expanded="false" href="{% if menuitem.specific.external_link %}{{ menuitem.specific.external_link }}{% else %}{% pageurl menuitem %}{% endif %}">
+                </a>
             {% endif %}
         </li>
     {% endfor %}

@@ -7,3 +7,9 @@ Created:December 2014
 License URI:http://support.wrapbootstrap.com/
 File Description: Place here your custom CSS styles
 */
+
+ul.dropdown-menu li a img {
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 1rem;
+}
