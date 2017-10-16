@@ -2,13 +2,13 @@
 
 <ul class="dropdown-menu">
     {# Include link to parent because the parent link is a drop down TODO: Discuss this. I think this is silly. #}
-    {# <li><a href="{% pageurl parent %}">{{ parent.title }}</a></li> #}
+    {# <li><a href="{% pageurl parent %}">{{ parent.specific.title }}</a></li> #}
     {% for child in menuitems_children %}
         <li><a href="{% pageurl child %}">
             {% if child.specific.menu_icon %}
-                {% image child.specific.menu_icon fill-64x64 %} {{ child.title }}
+                {% image child.specific.menu_icon fill-64x64 %} {{ child.specific.title }}
             {% else %}
-                {{ child.title }}
+                {{ child.specific.title }}
             {% endif %}
         </a></li>
     {% endfor %}
